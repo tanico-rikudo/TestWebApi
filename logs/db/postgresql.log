@@ -1,0 +1,1606 @@
+2025-02-11 01:30:24.522 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 01:30:24.527 GMT [1] LOG:  listening on IPv6 address "::1", port 5432
+2025-02-11 01:30:24.527 GMT [1] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-02-11 01:30:24.537 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 01:30:24.553 GMT [28] LOG:  database system was shut down at 2025-02-11 01:30:04 GMT
+2025-02-11 01:30:24.571 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 01:33:46.528 GMT [1] LOG:  received fast shutdown request
+2025-02-11 01:33:46.536 GMT [1] LOG:  aborting any active transactions
+2025-02-11 01:33:46.545 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-11 01:33:46.558 GMT [26] LOG:  shutting down
+2025-02-11 01:33:46.571 GMT [26] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 01:33:46.601 GMT [26] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.007 s, total=0.042 s; sync files=2, longest=0.004 s, average=0.004 s; distance=0 kB, estimate=0 kB
+2025-02-11 01:33:46.614 GMT [1] LOG:  database system is shut down
+2025-02-11 01:34:09.212 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 01:34:09.213 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 01:34:09.213 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 01:34:09.219 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 01:34:09.233 GMT [28] LOG:  database system was shut down at 2025-02-11 01:33:46 GMT
+2025-02-11 01:34:09.253 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 01:34:11.107 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:34:11.112 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:34:11.143 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:34:11.144 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:34:11.144 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:34:11.148 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 01:34:11.151 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 01:34:11.151 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:34:11.152 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:34:11.157 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:34:11.158 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:34:11.167 GMT [33] LOG:  statement: 
+	CREATE TABLE users (
+		id SERIAL NOT NULL, 
+		email VARCHAR NOT NULL, 
+		password VARCHAR NOT NULL, 
+		PRIMARY KEY (id)
+	)
+	
+	
+2025-02-11 01:34:11.213 GMT [33] LOG:  statement: CREATE UNIQUE INDEX ix_users_email ON users (email)
+2025-02-11 01:34:11.217 GMT [33] LOG:  statement: CREATE INDEX ix_users_id ON users (id)
+2025-02-11 01:34:11.220 GMT [33] LOG:  statement: COMMIT
+2025-02-11 01:36:44.024 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:36:44.024 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:36:44.028 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:36:45.571 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:36:45.573 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:36:45.580 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:36:51.964 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:36:51.964 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:36:51.968 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:37:34.954 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:37:34.954 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:37:34.957 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:37:35.794 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:37:35.795 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:37:35.802 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:38:03.742 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:38:03.743 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:38:03.746 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:39:09.309 GMT [26] LOG:  checkpoint starting: time
+2025-02-11 01:39:14.523 GMT [26] LOG:  checkpoint complete: wrote 54 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.176 s, sync=0.019 s, total=5.215 s; sync files=45, longest=0.005 s, average=0.001 s; distance=168 kB, estimate=168 kB
+2025-02-11 01:40:01.267 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:40:01.267 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:40:01.270 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:40:02.572 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:40:02.572 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:40:02.575 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:41:22.280 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:41:22.280 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:41:22.282 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:47:19.119 GMT [597] LOG:  statement: BEGIN
+2025-02-11 01:47:19.119 GMT [597] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:47:19.121 GMT [597] LOG:  statement: ROLLBACK
+2025-02-11 01:47:19.122 GMT [597] LOG:  statement: BEGIN
+2025-02-11 01:47:19.122 GMT [597] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:47:19.123 GMT [597] LOG:  statement: select current_schema()
+2025-02-11 01:47:19.124 GMT [597] LOG:  statement: show transaction isolation level
+2025-02-11 01:47:19.124 GMT [597] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:47:19.125 GMT [597] LOG:  statement: ROLLBACK
+2025-02-11 01:47:19.131 GMT [597] LOG:  statement: BEGIN
+2025-02-11 01:47:19.132 GMT [597] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:47:19.134 GMT [597] LOG:  statement: COMMIT
+2025-02-11 01:47:39.766 GMT [615] LOG:  statement: BEGIN
+2025-02-11 01:47:39.766 GMT [615] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:47:39.768 GMT [615] LOG:  statement: ROLLBACK
+2025-02-11 01:47:39.768 GMT [615] LOG:  statement: BEGIN
+2025-02-11 01:47:39.769 GMT [615] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:47:39.771 GMT [615] LOG:  statement: select current_schema()
+2025-02-11 01:47:39.771 GMT [615] LOG:  statement: show transaction isolation level
+2025-02-11 01:47:39.772 GMT [615] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:47:39.772 GMT [615] LOG:  statement: ROLLBACK
+2025-02-11 01:47:39.779 GMT [615] LOG:  statement: BEGIN
+2025-02-11 01:47:39.779 GMT [615] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:47:39.782 GMT [615] LOG:  statement: COMMIT
+2025-02-11 01:49:55.598 GMT [711] LOG:  statement: BEGIN
+2025-02-11 01:49:55.598 GMT [711] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:49:55.600 GMT [711] LOG:  statement: ROLLBACK
+2025-02-11 01:49:55.600 GMT [711] LOG:  statement: BEGIN
+2025-02-11 01:49:55.601 GMT [711] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:49:55.602 GMT [711] LOG:  statement: select current_schema()
+2025-02-11 01:49:55.603 GMT [711] LOG:  statement: show transaction isolation level
+2025-02-11 01:49:55.604 GMT [711] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:49:55.604 GMT [711] LOG:  statement: ROLLBACK
+2025-02-11 01:49:55.610 GMT [711] LOG:  statement: BEGIN
+2025-02-11 01:49:55.610 GMT [711] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:49:55.612 GMT [711] LOG:  statement: COMMIT
+2025-02-11 01:50:11.761 GMT [711] LOG:  statement: BEGIN
+2025-02-11 01:50:11.761 GMT [711] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:50:11.764 GMT [711] LOG:  statement: ROLLBACK
+2025-02-11 01:51:46.734 GMT [793] LOG:  statement: BEGIN
+2025-02-11 01:51:46.734 GMT [793] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:51:46.736 GMT [793] LOG:  statement: ROLLBACK
+2025-02-11 01:51:46.736 GMT [793] LOG:  statement: BEGIN
+2025-02-11 01:51:46.737 GMT [793] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:51:46.738 GMT [793] LOG:  statement: select current_schema()
+2025-02-11 01:51:46.739 GMT [793] LOG:  statement: show transaction isolation level
+2025-02-11 01:51:46.739 GMT [793] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:51:46.740 GMT [793] LOG:  statement: ROLLBACK
+2025-02-11 01:51:46.746 GMT [793] LOG:  statement: BEGIN
+2025-02-11 01:51:46.746 GMT [793] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:51:46.748 GMT [793] LOG:  statement: COMMIT
+2025-02-11 01:52:01.694 GMT [793] LOG:  statement: BEGIN
+2025-02-11 01:52:01.694 GMT [793] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:52:01.697 GMT [793] LOG:  statement: ROLLBACK
+2025-02-11 01:52:30.515 GMT [1] LOG:  received fast shutdown request
+2025-02-11 01:52:30.516 GMT [1] LOG:  aborting any active transactions
+2025-02-11 01:52:30.519 GMT [793] FATAL:  terminating connection due to administrator command
+2025-02-11 01:52:30.525 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-11 01:52:30.531 GMT [26] LOG:  shutting down
+2025-02-11 01:52:30.534 GMT [26] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 01:52:30.544 GMT [26] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.013 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=152 kB
+2025-02-11 01:52:30.551 GMT [1] LOG:  database system is shut down
+2025-02-11 01:52:40.684 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 01:52:40.685 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 01:52:40.685 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 01:52:40.693 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 01:52:40.701 GMT [25] LOG:  database system was shut down at 2025-02-11 01:52:30 GMT
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  checkpoint record is at 0/19A4D20
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  redo record is at 0/19A4D20; shutdown true
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  next transaction ID: 738; next OID: 16400
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 01:52:40.704 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 01:52:40.708 GMT [25] DEBUG:  starting up replication slots
+2025-02-11 01:52:40.708 GMT [25] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 01:52:40.710 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 01:52:40.710 GMT [25] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 01:52:40.719 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 01:52:40.719 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 01:52:40.723 GMT [30] DEBUG:  logical replication launcher started
+2025-02-11 01:52:40.725 GMT [29] DEBUG:  autovacuum launcher started
+2025-02-11 01:52:42.096 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:52:42.096 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:52:42.124 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:52:42.125 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:52:42.125 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:52:42.128 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 01:52:42.131 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 01:52:42.131 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:52:42.132 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:52:42.138 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:52:42.138 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:52:42.149 GMT [33] LOG:  statement: COMMIT
+2025-02-11 01:52:59.554 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:52:59.554 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:52:59.560 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:53:00.147 GMT [33] LOG:  statement: BEGIN
+2025-02-11 01:53:00.148 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:53:00.150 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 01:53:00.748 GMT [46] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:53:20.752 GMT [59] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:53:40.757 GMT [76] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:54:00.754 GMT [89] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:54:20.770 GMT [102] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:54:40.768 GMT [119] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:55:00.772 GMT [132] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:55:20.795 GMT [145] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:55:38.000 GMT [33] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:55:40.236 GMT [158] LOG:  statement: BEGIN
+2025-02-11 01:55:40.237 GMT [158] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:55:40.238 GMT [158] LOG:  statement: ROLLBACK
+2025-02-11 01:55:40.239 GMT [158] LOG:  statement: BEGIN
+2025-02-11 01:55:40.239 GMT [158] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:55:40.242 GMT [158] LOG:  statement: select current_schema()
+2025-02-11 01:55:40.242 GMT [158] LOG:  statement: show transaction isolation level
+2025-02-11 01:55:40.243 GMT [158] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:55:40.243 GMT [158] LOG:  statement: ROLLBACK
+2025-02-11 01:55:40.251 GMT [158] LOG:  statement: BEGIN
+2025-02-11 01:55:40.251 GMT [158] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:55:40.253 GMT [158] LOG:  statement: COMMIT
+2025-02-11 01:55:40.780 GMT [163] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:56:00.770 GMT [176] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:56:01.475 GMT [158] LOG:  statement: BEGIN
+2025-02-11 01:56:01.475 GMT [158] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:56:01.478 GMT [158] LOG:  statement: ROLLBACK
+2025-02-11 01:56:02.342 GMT [158] LOG:  statement: BEGIN
+2025-02-11 01:56:02.342 GMT [158] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:56:02.346 GMT [158] LOG:  statement: ROLLBACK
+2025-02-11 01:56:20.812 GMT [189] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:56:40.788 GMT [206] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:57:00.793 GMT [219] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:57:20.845 GMT [232] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:57:40.774 GMT [23] LOG:  checkpoint starting: time
+2025-02-11 01:57:40.774 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 01:57:40.805 GMT [249] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:57:40.889 GMT [23] DEBUG:  checkpoint sync: number=1 file=base/16384/2610 time=4.712 ms
+2025-02-11 01:57:40.890 GMT [23] DEBUG:  checkpoint sync: number=2 file=pg_multixact/offsets/0000 time=1.002 ms
+2025-02-11 01:57:40.891 GMT [23] DEBUG:  checkpoint sync: number=3 file=pg_xact/0000 time=0.984 ms
+2025-02-11 01:57:40.894 GMT [23] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.102 s, sync=0.008 s, total=0.122 s; sync files=3, longest=0.005 s, average=0.003 s; distance=0 kB, estimate=0 kB
+2025-02-11 01:57:50.569 GMT [158] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:57:52.742 GMT [258] LOG:  statement: BEGIN
+2025-02-11 01:57:52.742 GMT [258] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:57:52.744 GMT [258] LOG:  statement: ROLLBACK
+2025-02-11 01:57:52.745 GMT [258] LOG:  statement: BEGIN
+2025-02-11 01:57:52.745 GMT [258] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:57:52.748 GMT [258] LOG:  statement: select current_schema()
+2025-02-11 01:57:52.750 GMT [258] LOG:  statement: show transaction isolation level
+2025-02-11 01:57:52.750 GMT [258] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:57:52.751 GMT [258] LOG:  statement: ROLLBACK
+2025-02-11 01:57:52.758 GMT [258] LOG:  statement: BEGIN
+2025-02-11 01:57:52.758 GMT [258] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:57:52.760 GMT [258] LOG:  statement: COMMIT
+2025-02-11 01:58:00.810 GMT [263] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:58:20.263 GMT [258] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:58:20.853 GMT [276] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:58:22.513 GMT [277] LOG:  statement: BEGIN
+2025-02-11 01:58:22.513 GMT [277] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:58:22.516 GMT [277] LOG:  statement: ROLLBACK
+2025-02-11 01:58:22.517 GMT [277] LOG:  statement: BEGIN
+2025-02-11 01:58:22.518 GMT [277] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:58:22.519 GMT [277] LOG:  statement: select current_schema()
+2025-02-11 01:58:22.521 GMT [277] LOG:  statement: show transaction isolation level
+2025-02-11 01:58:22.521 GMT [277] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:58:22.522 GMT [277] LOG:  statement: ROLLBACK
+2025-02-11 01:58:22.530 GMT [277] LOG:  statement: BEGIN
+2025-02-11 01:58:22.530 GMT [277] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:58:22.533 GMT [277] LOG:  statement: COMMIT
+2025-02-11 01:58:40.818 GMT [294] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 01:59:00.833 GMT [307] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 01:59:09.245 GMT [277] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:59:11.173 GMT [316] LOG:  statement: BEGIN
+2025-02-11 01:59:11.174 GMT [316] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:59:11.180 GMT [316] LOG:  statement: ROLLBACK
+2025-02-11 01:59:11.182 GMT [316] LOG:  statement: BEGIN
+2025-02-11 01:59:11.185 GMT [316] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:59:11.187 GMT [316] LOG:  statement: select current_schema()
+2025-02-11 01:59:11.188 GMT [316] LOG:  statement: show transaction isolation level
+2025-02-11 01:59:11.189 GMT [316] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:59:11.190 GMT [316] LOG:  statement: ROLLBACK
+2025-02-11 01:59:11.203 GMT [316] LOG:  statement: BEGIN
+2025-02-11 01:59:11.204 GMT [316] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:59:11.207 GMT [316] LOG:  statement: COMMIT
+2025-02-11 01:59:15.256 GMT [316] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:59:17.345 GMT [321] LOG:  statement: BEGIN
+2025-02-11 01:59:17.346 GMT [321] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:59:17.347 GMT [321] LOG:  statement: ROLLBACK
+2025-02-11 01:59:17.348 GMT [321] LOG:  statement: BEGIN
+2025-02-11 01:59:17.349 GMT [321] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:59:17.353 GMT [321] LOG:  statement: select current_schema()
+2025-02-11 01:59:17.354 GMT [321] LOG:  statement: show transaction isolation level
+2025-02-11 01:59:17.355 GMT [321] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:59:17.355 GMT [321] LOG:  statement: ROLLBACK
+2025-02-11 01:59:17.370 GMT [321] LOG:  statement: BEGIN
+2025-02-11 01:59:17.371 GMT [321] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:59:17.376 GMT [321] LOG:  statement: COMMIT
+2025-02-11 01:59:17.404 GMT [321] DEBUG:  unexpected EOF on client connection
+2025-02-11 01:59:18.605 GMT [322] LOG:  statement: BEGIN
+2025-02-11 01:59:18.606 GMT [322] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 01:59:18.610 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 01:59:18.611 GMT [322] LOG:  statement: BEGIN
+2025-02-11 01:59:18.611 GMT [322] LOG:  statement: select pg_catalog.version()
+2025-02-11 01:59:18.616 GMT [322] LOG:  statement: select current_schema()
+2025-02-11 01:59:18.618 GMT [322] LOG:  statement: show transaction isolation level
+2025-02-11 01:59:18.618 GMT [322] LOG:  statement: show standard_conforming_strings
+2025-02-11 01:59:18.619 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 01:59:18.627 GMT [322] LOG:  statement: BEGIN
+2025-02-11 01:59:18.628 GMT [322] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 01:59:18.630 GMT [322] LOG:  statement: COMMIT
+2025-02-11 01:59:20.876 GMT [323] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 01:59:23.692 GMT [322] LOG:  statement: BEGIN
+2025-02-11 01:59:23.693 GMT [322] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 01:59:23.696 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 01:59:40.835 GMT [340] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:00:00.850 GMT [353] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:00:20.892 GMT [366] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:00:40.850 GMT [383] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:01:00.869 GMT [396] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:01:20.910 GMT [409] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:01:40.871 GMT [426] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:02:00.876 GMT [439] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:02:20.932 GMT [452] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:02:40.883 GMT [469] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:02:40.981 GMT [23] DEBUG:  checkpoint skipped because system is idle
+2025-02-11 02:03:00.873 GMT [482] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:03:08.336 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:08.337 GMT [322] LOG:  statement: INSERT INTO users (email, password) VALUES ('user@example.com', 'securepassword') RETURNING users.id
+2025-02-11 02:03:08.345 GMT [322] LOG:  statement: COMMIT
+2025-02-11 02:03:08.349 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:08.349 GMT [322] LOG:  statement: SELECT users.id, users.email, users.password 
+	FROM users 
+	WHERE users.id = 1
+2025-02-11 02:03:08.354 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:03:09.651 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:09.651 GMT [322] LOG:  statement: INSERT INTO users (email, password) VALUES ('user@example.com', 'securepassword') RETURNING users.id
+2025-02-11 02:03:09.653 GMT [322] ERROR:  duplicate key value violates unique constraint "ix_users_email"
+2025-02-11 02:03:09.653 GMT [322] DETAIL:  Key (email)=(user@example.com) already exists.
+2025-02-11 02:03:09.653 GMT [322] STATEMENT:  INSERT INTO users (email, password) VALUES ('user@example.com', 'securepassword') RETURNING users.id
+2025-02-11 02:03:09.654 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:03:11.138 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:11.139 GMT [322] LOG:  statement: INSERT INTO users (email, password) VALUES ('user@example.com', 'securepassword') RETURNING users.id
+2025-02-11 02:03:11.139 GMT [322] ERROR:  duplicate key value violates unique constraint "ix_users_email"
+2025-02-11 02:03:11.139 GMT [322] DETAIL:  Key (email)=(user@example.com) already exists.
+2025-02-11 02:03:11.139 GMT [322] STATEMENT:  INSERT INTO users (email, password) VALUES ('user@example.com', 'securepassword') RETURNING users.id
+2025-02-11 02:03:11.140 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:03:20.933 GMT [495] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:03:32.296 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:32.296 GMT [322] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 02:03:32.301 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:03:40.890 GMT [512] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:03:42.814 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:42.815 GMT [322] LOG:  statement: INSERT INTO users (email, password) VALUES ('uddser@example.com', 'sedcurepassword') RETURNING users.id
+2025-02-11 02:03:42.816 GMT [322] LOG:  statement: COMMIT
+2025-02-11 02:03:42.834 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:42.835 GMT [322] LOG:  statement: SELECT users.id, users.email, users.password 
+	FROM users 
+	WHERE users.id = 4
+2025-02-11 02:03:42.839 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:03:45.978 GMT [322] LOG:  statement: BEGIN
+2025-02-11 02:03:45.979 GMT [322] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 02:03:45.993 GMT [322] LOG:  statement: ROLLBACK
+2025-02-11 02:04:00.883 GMT [525] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:04:20.962 GMT [538] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:04:40.912 GMT [555] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:05:00.880 GMT [568] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:05:20.979 GMT [581] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:05:40.932 GMT [598] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:06:00.901 GMT [611] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:06:20.997 GMT [624] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:06:40.946 GMT [641] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:07:00.917 GMT [654] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:07:21.019 GMT [667] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:07:40.964 GMT [683] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:07:41.033 GMT [23] LOG:  checkpoint starting: time
+2025-02-11 02:07:41.033 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 02:07:42.009 GMT [23] DEBUG:  checkpoint sync: number=1 file=base/16384/16390 time=57.915 ms
+2025-02-11 02:07:42.010 GMT [23] DEBUG:  checkpoint sync: number=2 file=base/16384/16389 time=0.765 ms
+2025-02-11 02:07:42.010 GMT [23] DEBUG:  checkpoint sync: number=3 file=base/16384/16398 time=0.408 ms
+2025-02-11 02:07:42.012 GMT [23] DEBUG:  checkpoint sync: number=4 file=base/16384/16399 time=0.922 ms
+2025-02-11 02:07:42.012 GMT [23] DEBUG:  checkpoint sync: number=5 file=base/16384/16396 time=0.331 ms
+2025-02-11 02:07:42.013 GMT [23] DEBUG:  checkpoint sync: number=6 file=pg_xact/0000 time=1.217 ms
+2025-02-11 02:07:42.014 GMT [23] DEBUG:  checkpoint sync: number=7 file=base/16384/2224 time=0.471 ms
+2025-02-11 02:07:42.018 GMT [23] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.913 s, sync=0.064 s, total=0.986 s; sync files=7, longest=0.058 s, average=0.009 s; distance=1 kB, estimate=1 kB
+2025-02-11 02:08:00.920 GMT [697] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:08:21.036 GMT [710] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 02:08:40.982 GMT [723] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 02:09:00.947 GMT [740] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 02:09:17.369 GMT [1] LOG:  received fast shutdown request
+2025-02-11 02:09:17.373 GMT [1] LOG:  aborting any active transactions
+2025-02-11 02:09:17.373 GMT [30] DEBUG:  logical replication launcher shutting down
+2025-02-11 02:09:17.373 GMT [29] DEBUG:  autovacuum launcher shutting down
+2025-02-11 02:09:17.373 GMT [322] FATAL:  terminating connection due to administrator command
+2025-02-11 02:09:17.388 GMT [1] LOG:  background worker "logical replication launcher" (PID 30) exited with exit code 1
+2025-02-11 02:09:17.391 GMT [23] LOG:  shutting down
+2025-02-11 02:09:17.395 GMT [23] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 02:09:17.395 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 02:09:17.406 GMT [23] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.016 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=1 kB
+2025-02-11 02:09:17.419 GMT [1] LOG:  database system is shut down
+2025-02-11 02:09:17.425 GMT [22] DEBUG:  logger shutting down
+2025-02-11 11:05:39.188 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 11:05:39.189 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 11:05:39.189 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 11:05:39.194 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 11:05:39.205 GMT [28] LOG:  database system was shut down at 2025-02-11 02:09:17 GMT
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  checkpoint record is at 0/19A5610
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  redo record is at 0/19A5610; shutdown true
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  next transaction ID: 742; next OID: 16400
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 11:05:39.206 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:05:39.207 GMT [28] DEBUG:  starting up replication slots
+2025-02-11 11:05:39.207 GMT [28] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 11:05:39.211 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:05:39.211 GMT [28] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 11:05:39.222 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 11:05:39.223 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 11:05:39.223 GMT [31] DEBUG:  logical replication launcher started
+2025-02-11 11:05:39.223 GMT [30] DEBUG:  autovacuum launcher started
+2025-02-11 11:05:41.354 GMT [32] LOG:  statement: BEGIN
+2025-02-11 11:05:41.357 GMT [32] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 11:05:41.394 GMT [32] LOG:  statement: ROLLBACK
+2025-02-11 11:05:41.395 GMT [32] LOG:  statement: BEGIN
+2025-02-11 11:05:41.395 GMT [32] LOG:  statement: select pg_catalog.version()
+2025-02-11 11:05:41.400 GMT [32] LOG:  statement: select current_schema()
+2025-02-11 11:05:41.403 GMT [32] LOG:  statement: show transaction isolation level
+2025-02-11 11:05:41.403 GMT [32] LOG:  statement: show standard_conforming_strings
+2025-02-11 11:05:41.404 GMT [32] LOG:  statement: ROLLBACK
+2025-02-11 11:05:41.411 GMT [32] LOG:  statement: BEGIN
+2025-02-11 11:05:41.411 GMT [32] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 11:05:41.425 GMT [32] LOG:  statement: COMMIT
+2025-02-11 11:05:59.284 GMT [45] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:06:19.251 GMT [58] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:06:39.272 GMT [75] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:06:43.980 GMT [1] LOG:  received fast shutdown request
+2025-02-11 11:06:43.983 GMT [1] LOG:  aborting any active transactions
+2025-02-11 11:06:43.983 GMT [30] DEBUG:  autovacuum launcher shutting down
+2025-02-11 11:06:43.983 GMT [31] DEBUG:  logical replication launcher shutting down
+2025-02-11 11:06:43.995 GMT [32] FATAL:  terminating connection due to administrator command
+2025-02-11 11:06:44.073 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-11 11:06:44.077 GMT [26] LOG:  shutting down
+2025-02-11 11:06:44.083 GMT [26] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 11:06:44.083 GMT [26] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:06:44.114 GMT [26] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=4.558 ms
+2025-02-11 11:06:44.116 GMT [26] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=1.883 ms
+2025-02-11 11:06:44.122 GMT [26] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.007 s, total=0.045 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:06:44.143 GMT [1] LOG:  database system is shut down
+2025-02-11 11:06:44.154 GMT [25] DEBUG:  logger shutting down
+2025-02-11 11:06:57.497 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 11:06:57.499 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 11:06:57.502 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 11:06:57.514 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 11:06:57.539 GMT [28] LOG:  database system was shut down at 2025-02-11 11:06:44 GMT
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  checkpoint record is at 0/19A56C0
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  redo record is at 0/19A56C0; shutdown true
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  next transaction ID: 742; next OID: 16400
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 11:06:57.542 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:06:57.544 GMT [28] DEBUG:  starting up replication slots
+2025-02-11 11:06:57.544 GMT [28] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 11:06:57.545 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:06:57.545 GMT [28] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 11:06:57.565 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 11:06:57.566 GMT [30] DEBUG:  autovacuum launcher started
+2025-02-11 11:06:57.572 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 11:06:57.574 GMT [31] DEBUG:  logical replication launcher started
+2025-02-11 11:07:01.286 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:07:01.291 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 11:07:01.331 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:07:01.332 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:07:01.332 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 11:07:01.338 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 11:07:01.341 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 11:07:01.341 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 11:07:01.341 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:07:01.347 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:07:01.348 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 11:07:01.359 GMT [33] LOG:  statement: COMMIT
+2025-02-11 11:07:17.644 GMT [46] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:07:37.582 GMT [59] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:07:57.670 GMT [72] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:08:17.618 GMT [89] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:08:37.603 GMT [102] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:08:57.634 GMT [118] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:09:17.655 GMT [132] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:09:37.623 GMT [145] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:09:53.128 GMT [1] LOG:  received fast shutdown request
+2025-02-11 11:09:53.134 GMT [1] LOG:  aborting any active transactions
+2025-02-11 11:09:53.135 GMT [31] DEBUG:  logical replication launcher shutting down
+2025-02-11 11:09:53.137 GMT [30] DEBUG:  autovacuum launcher shutting down
+2025-02-11 11:09:53.146 GMT [33] FATAL:  terminating connection due to administrator command
+2025-02-11 11:09:53.158 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-11 11:09:53.161 GMT [26] LOG:  shutting down
+2025-02-11 11:09:53.163 GMT [26] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 11:09:53.163 GMT [26] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:09:53.174 GMT [26] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=1.923 ms
+2025-02-11 11:09:53.176 GMT [26] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=1.020 ms
+2025-02-11 11:09:53.180 GMT [26] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.004 s, total=0.020 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:09:53.194 GMT [1] LOG:  database system is shut down
+2025-02-11 11:11:30.709 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 11:11:30.712 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 11:11:30.712 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 11:11:30.719 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 11:11:30.730 GMT [28] LOG:  database system was shut down at 2025-02-11 11:09:53 GMT
+2025-02-11 11:11:30.732 GMT [29] FATAL:  the database system is starting up
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  checkpoint record is at 0/19A5770
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  redo record is at 0/19A5770; shutdown true
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  next transaction ID: 742; next OID: 16400
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 11:11:30.733 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:11:30.744 GMT [28] DEBUG:  starting up replication slots
+2025-02-11 11:11:30.744 GMT [28] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 11:11:30.748 GMT [28] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:11:30.748 GMT [28] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 11:11:30.754 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 11:11:30.754 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 11:11:30.754 GMT [31] DEBUG:  autovacuum launcher started
+2025-02-11 11:11:30.756 GMT [32] DEBUG:  logical replication launcher started
+2025-02-11 11:11:33.742 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:11:33.746 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 11:11:33.786 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:11:33.786 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:11:33.787 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 11:11:33.791 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 11:11:33.794 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 11:11:33.794 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 11:11:33.795 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:11:33.802 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:11:33.802 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 11:11:33.815 GMT [33] LOG:  statement: COMMIT
+2025-02-11 11:11:43.087 GMT [1] LOG:  received fast shutdown request
+2025-02-11 11:11:43.091 GMT [1] LOG:  aborting any active transactions
+2025-02-11 11:11:43.091 GMT [32] DEBUG:  logical replication launcher shutting down
+2025-02-11 11:11:43.095 GMT [31] DEBUG:  autovacuum launcher shutting down
+2025-02-11 11:11:43.097 GMT [33] FATAL:  terminating connection due to administrator command
+2025-02-11 11:11:43.126 GMT [1] LOG:  background worker "logical replication launcher" (PID 32) exited with exit code 1
+2025-02-11 11:11:43.127 GMT [26] LOG:  shutting down
+2025-02-11 11:11:43.132 GMT [26] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 11:11:43.132 GMT [26] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:11:43.157 GMT [26] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=2.605 ms
+2025-02-11 11:11:43.159 GMT [26] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=1.654 ms
+2025-02-11 11:11:43.166 GMT [26] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.005 s, total=0.039 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:11:43.193 GMT [1] LOG:  database system is shut down
+2025-02-11 11:11:43.208 GMT [25] DEBUG:  logger shutting down
+2025-02-11 11:12:20.887 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 11:12:20.889 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 11:12:20.889 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 11:12:20.892 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 11:12:20.901 GMT [25] LOG:  database system was shut down at 2025-02-11 11:11:43 GMT
+2025-02-11 11:12:20.907 GMT [25] DEBUG:  checkpoint record is at 0/19A57E8
+2025-02-11 11:12:20.907 GMT [25] DEBUG:  redo record is at 0/19A57E8; shutdown true
+2025-02-11 11:12:20.907 GMT [25] DEBUG:  next transaction ID: 742; next OID: 16400
+2025-02-11 11:12:20.907 GMT [25] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:12:20.910 GMT [25] DEBUG:  starting up replication slots
+2025-02-11 11:12:20.911 GMT [25] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 11:12:20.916 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:12:20.916 GMT [25] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 11:12:20.930 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 11:12:20.936 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 11:12:20.936 GMT [30] DEBUG:  autovacuum launcher started
+2025-02-11 11:12:20.937 GMT [31] DEBUG:  logical replication launcher started
+2025-02-11 11:12:23.438 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:23.441 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 11:12:23.532 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:12:23.537 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:23.537 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 11:12:23.547 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 11:12:23.550 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 11:12:23.553 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 11:12:23.554 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:12:23.575 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:23.578 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 11:12:23.584 GMT [33] LOG:  statement: COMMIT
+2025-02-11 11:12:24.145 GMT [1] LOG:  received fast shutdown request
+2025-02-11 11:12:24.161 GMT [1] LOG:  aborting any active transactions
+2025-02-11 11:12:24.164 GMT [30] DEBUG:  autovacuum launcher shutting down
+2025-02-11 11:12:24.165 GMT [33] FATAL:  terminating connection due to administrator command
+2025-02-11 11:12:24.163 GMT [31] DEBUG:  logical replication launcher shutting down
+2025-02-11 11:12:24.236 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-11 11:12:24.240 GMT [23] LOG:  shutting down
+2025-02-11 11:12:24.245 GMT [23] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 11:12:24.245 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:12:24.262 GMT [23] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=6.787 ms
+2025-02-11 11:12:24.266 GMT [23] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=3.697 ms
+2025-02-11 11:12:24.277 GMT [23] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.011 s, total=0.037 s; sync files=2, longest=0.007 s, average=0.006 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:12:24.289 GMT [1] LOG:  database system is shut down
+2025-02-11 11:12:24.296 GMT [22] DEBUG:  logger shutting down
+2025-02-11 11:12:43.039 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-11 11:12:43.042 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-11 11:12:43.042 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-11 11:12:43.055 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-11 11:12:43.087 GMT [25] LOG:  database system was shut down at 2025-02-11 11:12:24 GMT
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  checkpoint record is at 0/19A5860
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  redo record is at 0/19A5860; shutdown true
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  next transaction ID: 742; next OID: 16400
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-11 11:12:43.089 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:12:43.090 GMT [25] DEBUG:  starting up replication slots
+2025-02-11 11:12:43.090 GMT [25] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-11 11:12:43.097 GMT [25] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-11 11:12:43.097 GMT [25] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-11 11:12:43.183 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-11 11:12:43.188 GMT [27] DEBUG:  autovacuum launcher started
+2025-02-11 11:12:43.189 GMT [1] LOG:  database system is ready to accept connections
+2025-02-11 11:12:43.192 GMT [28] DEBUG:  logical replication launcher started
+2025-02-11 11:12:51.478 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:51.486 GMT [33] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-11 11:12:51.701 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:12:51.711 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:51.712 GMT [33] LOG:  statement: select pg_catalog.version()
+2025-02-11 11:12:51.747 GMT [33] LOG:  statement: select current_schema()
+2025-02-11 11:12:51.748 GMT [33] LOG:  statement: show transaction isolation level
+2025-02-11 11:12:51.751 GMT [33] LOG:  statement: show standard_conforming_strings
+2025-02-11 11:12:51.752 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:12:51.829 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:12:51.831 GMT [33] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-11 11:12:51.869 GMT [33] LOG:  statement: COMMIT
+2025-02-11 11:13:03.253 GMT [42] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:13:16.480 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:13:16.482 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 11:13:16.498 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:13:23.405 GMT [51] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:13:25.272 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:13:25.275 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 11:13:25.288 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:13:29.637 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:13:29.775 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 11:13:29.799 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:13:43.272 GMT [64] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:13:53.145 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:13:53.147 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 11:13:53.158 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:14:03.255 GMT [77] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:14:23.329 GMT [90] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:14:43.248 GMT [103] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:14:52.454 GMT [33] LOG:  statement: BEGIN
+2025-02-11 11:14:52.457 GMT [33] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-11 11:14:52.500 GMT [33] LOG:  statement: ROLLBACK
+2025-02-11 11:15:03.273 GMT [112] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:15:23.975 GMT [121] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:15:43.269 GMT [134] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:16:03.292 GMT [147] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:16:23.396 GMT [160] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:16:43.316 GMT [169] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:17:03.315 GMT [182] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:17:23.420 GMT [195] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:17:43.187 GMT [23] LOG:  checkpoint starting: time
+2025-02-11 11:17:43.188 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:17:43.267 GMT [23] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=4.987 ms
+2025-02-11 11:17:43.270 GMT [23] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=2.925 ms
+2025-02-11 11:17:43.278 GMT [23] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.007 s, sync=0.009 s, total=0.092 s; sync files=2, longest=0.005 s, average=0.004 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:17:43.300 GMT [208] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:18:03.360 GMT [217] DEBUG:  autovacuum: processing database "template1"
+2025-02-11 11:18:23.438 GMT [230] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-11 11:18:43.316 GMT [239] DEBUG:  autovacuum: processing database "postgres"
+2025-02-11 11:18:50.001 GMT [1] LOG:  received fast shutdown request
+2025-02-11 11:18:50.008 GMT [1] LOG:  aborting any active transactions
+2025-02-11 11:18:50.009 GMT [27] DEBUG:  autovacuum launcher shutting down
+2025-02-11 11:18:50.014 GMT [28] DEBUG:  logical replication launcher shutting down
+2025-02-11 11:18:50.017 GMT [33] FATAL:  terminating connection due to administrator command
+2025-02-11 11:18:50.028 GMT [1] LOG:  background worker "logical replication launcher" (PID 28) exited with exit code 1
+2025-02-11 11:18:50.043 GMT [23] LOG:  shutting down
+2025-02-11 11:18:50.046 GMT [23] LOG:  checkpoint starting: shutdown immediate
+2025-02-11 11:18:50.046 GMT [23] DEBUG:  performing replication slot checkpoint
+2025-02-11 11:18:50.067 GMT [23] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.023 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2025-02-11 11:18:50.096 GMT [1] LOG:  database system is shut down
+2025-02-12 11:32:42.291 GMT [45] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-12 11:32:42.294 GMT [45] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-12 11:32:42.321 GMT [49] LOG:  database system was shut down at 2025-02-12 11:32:41 GMT
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  checkpoint record is at 0/1501410
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  redo record is at 0/1501410; shutdown true
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  next transaction ID: 725; next OID: 13574
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-12 11:32:42.321 GMT [49] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 11:32:42.322 GMT [49] DEBUG:  starting up replication slots
+2025-02-12 11:32:42.322 GMT [49] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-12 11:32:42.331 GMT [49] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 11:32:42.331 GMT [49] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-12 11:32:42.344 GMT [45] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-12 11:32:42.346 GMT [45] LOG:  database system is ready to accept connections
+2025-02-12 11:32:42.347 GMT [52] DEBUG:  logical replication launcher started
+2025-02-12 11:32:42.348 GMT [51] DEBUG:  autovacuum launcher started
+2025-02-12 11:32:42.593 GMT [55] LOG:  statement: SELECT 1 FROM pg_database WHERE datname = 'fastapi_db' ;
+2025-02-12 11:32:42.731 GMT [57] LOG:  statement: CREATE DATABASE "fastapi_db" ;
+2025-02-12 11:32:42.975 GMT [45] LOG:  received fast shutdown request
+2025-02-12 11:32:42.979 GMT [45] LOG:  aborting any active transactions
+2025-02-12 11:32:42.979 GMT [52] DEBUG:  logical replication launcher shutting down
+2025-02-12 11:32:42.979 GMT [51] DEBUG:  autovacuum launcher shutting down
+2025-02-12 11:32:42.999 GMT [45] LOG:  background worker "logical replication launcher" (PID 52) exited with exit code 1
+2025-02-12 11:32:43.002 GMT [47] LOG:  shutting down
+2025-02-12 11:32:43.003 GMT [47] LOG:  checkpoint starting: shutdown immediate
+2025-02-12 11:32:43.004 GMT [47] DEBUG:  performing replication slot checkpoint
+2025-02-12 11:32:43.083 GMT [47] DEBUG:  checkpoint sync: number=1 file=base/16384/13402 time=4.252 ms
+2025-02-12 11:32:43.084 GMT [47] DEBUG:  checkpoint sync: number=2 file=base/16384/13407 time=0.556 ms
+2025-02-12 11:32:43.084 GMT [47] DEBUG:  checkpoint sync: number=3 file=base/16384/2841 time=0.206 ms
+2025-02-12 11:32:43.084 GMT [47] DEBUG:  checkpoint sync: number=4 file=base/16384/13408 time=0.147 ms
+2025-02-12 11:32:43.084 GMT [47] DEBUG:  checkpoint sync: number=5 file=base/16384/2833 time=0.086 ms
+2025-02-12 11:32:43.084 GMT [47] DEBUG:  checkpoint sync: number=6 file=base/16384/1247_fsm time=0.096 ms
+2025-02-12 11:32:43.085 GMT [47] DEBUG:  checkpoint sync: number=7 file=base/16384/2670 time=0.088 ms
+2025-02-12 11:32:43.085 GMT [47] DEBUG:  checkpoint sync: number=8 file=base/16384/1255_fsm time=0.200 ms
+2025-02-12 11:32:43.085 GMT [47] DEBUG:  checkpoint sync: number=9 file=base/16384/4150 time=0.280 ms
+2025-02-12 11:32:43.085 GMT [47] DEBUG:  checkpoint sync: number=10 file=base/16384/4152 time=0.187 ms
+2025-02-12 11:32:43.086 GMT [47] DEBUG:  checkpoint sync: number=11 file=base/16384/6116 time=0.202 ms
+2025-02-12 11:32:43.086 GMT [47] DEBUG:  checkpoint sync: number=12 file=base/16384/2610_fsm time=0.243 ms
+2025-02-12 11:32:43.086 GMT [47] DEBUG:  checkpoint sync: number=13 file=base/16384/4173 time=0.267 ms
+2025-02-12 11:32:43.086 GMT [47] DEBUG:  checkpoint sync: number=14 file=base/16384/2658 time=0.098 ms
+2025-02-12 11:32:43.086 GMT [47] DEBUG:  checkpoint sync: number=15 file=base/16384/3608 time=0.097 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=16 file=base/16384/2601_vm time=0.125 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=17 file=base/16384/2836_vm time=0.140 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=18 file=base/16384/2832 time=0.078 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=19 file=base/16384/2753_vm time=0.077 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=20 file=base/16384/2602_fsm time=0.108 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=21 file=base/16384/13403_fsm time=0.104 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=22 file=base/16384/2681 time=0.063 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=23 file=base/16384/3429 time=0.155 ms
+2025-02-12 11:32:43.087 GMT [47] DEBUG:  checkpoint sync: number=24 file=base/16384/3118 time=0.065 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=25 file=base/16384/3574 time=0.055 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=26 file=base/16384/4169 time=0.109 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=27 file=base/16384/4143 time=0.078 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=28 file=base/16384/1417 time=0.063 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=29 file=base/16384/2600 time=0.145 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=30 file=base/16384/4164 time=0.086 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=31 file=base/16384/2838_fsm time=0.175 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=32 file=base/16384/2618_vm time=0.069 ms
+2025-02-12 11:32:43.088 GMT [47] DEBUG:  checkpoint sync: number=33 file=base/16384/4166 time=0.139 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=34 file=base/16384/2840 time=0.088 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=35 file=base/16384/2701 time=0.104 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=36 file=base/16384/2579 time=0.069 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=37 file=base/16384/2654 time=0.119 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=38 file=base/16384/13408_vm time=0.148 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=39 file=base/16384/4157 time=0.076 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=40 file=base/16384/2619 time=0.154 ms
+2025-02-12 11:32:43.089 GMT [47] DEBUG:  checkpoint sync: number=41 file=base/16384/175 time=0.152 ms
+2025-02-12 11:32:43.090 GMT [47] DEBUG:  checkpoint sync: number=42 file=base/16384/2680 time=0.130 ms
+2025-02-12 11:32:43.090 GMT [47] DEBUG:  checkpoint sync: number=43 file=base/16384/2620 time=0.175 ms
+2025-02-12 11:32:43.090 GMT [47] DEBUG:  checkpoint sync: number=44 file=base/16384/2831 time=0.069 ms
+2025-02-12 11:32:43.090 GMT [47] DEBUG:  checkpoint sync: number=45 file=base/16384/2617 time=0.206 ms
+2025-02-12 11:32:43.090 GMT [47] DEBUG:  checkpoint sync: number=46 file=base/16384/1249_fsm time=0.142 ms
+2025-02-12 11:32:43.091 GMT [47] DEBUG:  checkpoint sync: number=47 file=base/16384/2606_vm time=0.233 ms
+2025-02-12 11:32:43.091 GMT [47] DEBUG:  checkpoint sync: number=48 file=base/16384/2615_vm time=0.117 ms
+2025-02-12 11:32:43.091 GMT [47] DEBUG:  checkpoint sync: number=49 file=base/16384/2612_vm time=0.396 ms
+2025-02-12 11:32:43.091 GMT [47] DEBUG:  checkpoint sync: number=50 file=base/16384/3466 time=0.195 ms
+2025-02-12 11:32:43.091 GMT [47] DEBUG:  checkpoint sync: number=51 file=base/16384/4167 time=0.174 ms
+2025-02-12 11:32:43.092 GMT [47] DEBUG:  checkpoint sync: number=52 file=base/16384/2674 time=0.081 ms
+2025-02-12 11:32:43.092 GMT [47] DEBUG:  checkpoint sync: number=53 file=base/16384/3256 time=0.351 ms
+2025-02-12 11:32:43.092 GMT [47] DEBUG:  checkpoint sync: number=54 file=base/16384/2688 time=0.117 ms
+2025-02-12 11:32:43.092 GMT [47] DEBUG:  checkpoint sync: number=55 file=base/16384/3997 time=0.175 ms
+2025-02-12 11:32:43.092 GMT [47] DEBUG:  checkpoint sync: number=56 file=base/16384/2703 time=0.163 ms
+2025-02-12 11:32:43.093 GMT [47] DEBUG:  checkpoint sync: number=57 file=base/16384/6175 time=0.255 ms
+2025-02-12 11:32:43.093 GMT [47] DEBUG:  checkpoint sync: number=58 file=base/16384/6104 time=0.158 ms
+2025-02-12 11:32:43.093 GMT [47] DEBUG:  checkpoint sync: number=59 file=base/16384/2757 time=0.129 ms
+2025-02-12 11:32:43.093 GMT [47] DEBUG:  checkpoint sync: number=60 file=base/16384/2610 time=0.186 ms
+2025-02-12 11:32:43.093 GMT [47] DEBUG:  checkpoint sync: number=61 file=base/16384/1247_vm time=0.156 ms
+2025-02-12 11:32:43.094 GMT [47] DEBUG:  checkpoint sync: number=62 file=base/16384/2187 time=0.381 ms
+2025-02-12 11:32:43.094 GMT [47] DEBUG:  checkpoint sync: number=63 file=base/16384/2615 time=0.199 ms
+2025-02-12 11:32:43.094 GMT [47] DEBUG:  checkpoint sync: number=64 file=base/16384/2607_fsm time=0.104 ms
+2025-02-12 11:32:43.094 GMT [47] DEBUG:  checkpoint sync: number=65 file=base/16384/3602 time=0.300 ms
+2025-02-12 11:32:43.095 GMT [47] DEBUG:  checkpoint sync: number=66 file=base/16384/3576 time=0.218 ms
+2025-02-12 11:32:43.095 GMT [47] DEBUG:  checkpoint sync: number=67 file=base/16384/2836_fsm time=0.146 ms
+2025-02-12 11:32:43.095 GMT [47] DEBUG:  checkpoint sync: number=68 file=base/16384/2702 time=0.157 ms
+2025-02-12 11:32:43.095 GMT [47] DEBUG:  checkpoint sync: number=69 file=base/16384/549 time=0.150 ms
+2025-02-12 11:32:43.096 GMT [47] DEBUG:  checkpoint sync: number=70 file=base/16384/13396 time=0.222 ms
+2025-02-12 11:32:43.096 GMT [47] DEBUG:  checkpoint sync: number=71 file=base/16384/3607 time=0.805 ms
+2025-02-12 11:32:43.098 GMT [47] DEBUG:  checkpoint sync: number=72 file=base/16384/6239 time=1.836 ms
+2025-02-12 11:32:43.099 GMT [47] DEBUG:  checkpoint sync: number=73 file=base/16384/3395 time=0.622 ms
+2025-02-12 11:32:43.100 GMT [47] DEBUG:  checkpoint sync: number=74 file=base/16384/3456 time=1.111 ms
+2025-02-12 11:32:43.102 GMT [47] DEBUG:  checkpoint sync: number=75 file=base/16384/6237 time=1.391 ms
+2025-02-12 11:32:43.103 GMT [47] DEBUG:  checkpoint sync: number=76 file=base/16384/2756 time=1.238 ms
+2025-02-12 11:32:43.103 GMT [47] DEBUG:  checkpoint sync: number=77 file=base/16384/2605_fsm time=0.479 ms
+2025-02-12 11:32:43.104 GMT [47] DEBUG:  checkpoint sync: number=78 file=base/16384/2618 time=0.425 ms
+2025-02-12 11:32:43.105 GMT [47] DEBUG:  checkpoint sync: number=79 file=base/16384/2650 time=0.918 ms
+2025-02-12 11:32:43.106 GMT [47] DEBUG:  checkpoint sync: number=80 file=base/16384/2668 time=1.228 ms
+2025-02-12 11:32:43.107 GMT [47] DEBUG:  checkpoint sync: number=81 file=base/16384/13403 time=0.487 ms
+2025-02-12 11:32:43.107 GMT [47] DEBUG:  checkpoint sync: number=82 file=base/16384/4171 time=0.663 ms
+2025-02-12 11:32:43.108 GMT [47] DEBUG:  checkpoint sync: number=83 file=base/16384/4170 time=0.586 ms
+2025-02-12 11:32:43.108 GMT [47] DEBUG:  checkpoint sync: number=84 file=base/16384/3767 time=0.231 ms
+2025-02-12 11:32:43.109 GMT [47] DEBUG:  checkpoint sync: number=85 file=base/16384/3541 time=0.348 ms
+2025-02-12 11:32:43.109 GMT [47] DEBUG:  checkpoint sync: number=86 file=base/16384/2617_vm time=0.182 ms
+2025-02-12 11:32:43.110 GMT [47] DEBUG:  checkpoint sync: number=87 file=base/16384/3601_fsm time=0.748 ms
+2025-02-12 11:32:43.110 GMT [47] DEBUG:  checkpoint sync: number=88 file=base/16384/2838_vm time=0.321 ms
+2025-02-12 11:32:43.111 GMT [47] DEBUG:  checkpoint sync: number=89 file=base/16384/2664 time=1.191 ms
+2025-02-12 11:32:43.112 GMT [47] DEBUG:  checkpoint sync: number=90 file=global/2671 time=0.456 ms
+2025-02-12 11:32:43.115 GMT [47] DEBUG:  checkpoint sync: number=91 file=base/16384/3605 time=2.842 ms
+2025-02-12 11:32:43.115 GMT [47] DEBUG:  checkpoint sync: number=92 file=base/16384/3440 time=0.180 ms
+2025-02-12 11:32:43.115 GMT [47] DEBUG:  checkpoint sync: number=93 file=base/16384/3394_vm time=0.081 ms
+2025-02-12 11:32:43.115 GMT [47] DEBUG:  checkpoint sync: number=94 file=base/16384/3541_vm time=0.297 ms
+2025-02-12 11:32:43.116 GMT [47] DEBUG:  checkpoint sync: number=95 file=base/16384/2600_fsm time=0.419 ms
+2025-02-12 11:32:43.116 GMT [47] DEBUG:  checkpoint sync: number=96 file=base/16384/4151 time=0.303 ms
+2025-02-12 11:32:43.116 GMT [47] DEBUG:  checkpoint sync: number=97 file=base/16384/2666 time=0.305 ms
+2025-02-12 11:32:43.117 GMT [47] DEBUG:  checkpoint sync: number=98 file=base/16384/3603_fsm time=0.270 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=99 file=pg_xact/0000 time=0.847 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=100 file=base/16384/2838 time=0.140 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=101 file=base/16384/2228 time=0.140 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=102 file=base/16384/2704 time=0.143 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=103 file=base/16384/2224 time=0.183 ms
+2025-02-12 11:32:43.118 GMT [47] DEBUG:  checkpoint sync: number=104 file=base/16384/2675 time=0.139 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=105 file=base/16384/1249_vm time=0.167 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=106 file=base/16384/2603 time=0.120 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=107 file=base/16384/2839 time=0.140 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=108 file=base/16384/2606_fsm time=0.146 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=109 file=base/16384/2655 time=0.067 ms
+2025-02-12 11:32:43.119 GMT [47] DEBUG:  checkpoint sync: number=110 file=base/16384/2336 time=0.170 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=111 file=base/16384/4155 time=0.153 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=112 file=base/16384/1255 time=0.183 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=113 file=base/16384/3381 time=0.148 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=114 file=base/16384/5002 time=0.129 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=115 file=base/16384/2618_fsm time=0.137 ms
+2025-02-12 11:32:43.120 GMT [47] DEBUG:  checkpoint sync: number=116 file=base/16384/2601_fsm time=0.117 ms
+2025-02-12 11:32:43.121 GMT [47] DEBUG:  checkpoint sync: number=117 file=base/16384/6228 time=0.206 ms
+2025-02-12 11:32:43.121 GMT [47] DEBUG:  checkpoint sync: number=118 file=base/16384/3080 time=0.374 ms
+2025-02-12 11:32:43.121 GMT [47] DEBUG:  checkpoint sync: number=119 file=base/16384/3601_vm time=0.407 ms
+2025-02-12 11:32:43.122 GMT [47] DEBUG:  checkpoint sync: number=120 file=base/16384/2692 time=0.177 ms
+2025-02-12 11:32:43.122 GMT [47] DEBUG:  checkpoint sync: number=121 file=base/16384/6110 time=0.160 ms
+2025-02-12 11:32:43.122 GMT [47] DEBUG:  checkpoint sync: number=122 file=base/16384/3603 time=0.139 ms
+2025-02-12 11:32:43.122 GMT [47] DEBUG:  checkpoint sync: number=123 file=base/16384/2609_fsm time=0.129 ms
+2025-02-12 11:32:43.122 GMT [47] DEBUG:  checkpoint sync: number=124 file=base/16384/2840_fsm time=0.140 ms
+2025-02-12 11:32:43.123 GMT [47] DEBUG:  checkpoint sync: number=125 file=base/16384/2687 time=0.685 ms
+2025-02-12 11:32:43.123 GMT [47] DEBUG:  checkpoint sync: number=126 file=base/16384/2693 time=0.185 ms
+2025-02-12 11:32:43.123 GMT [47] DEBUG:  checkpoint sync: number=127 file=base/16384/2661 time=0.124 ms
+2025-02-12 11:32:43.124 GMT [47] DEBUG:  checkpoint sync: number=128 file=base/16384/2616_vm time=0.270 ms
+2025-02-12 11:32:43.124 GMT [47] DEBUG:  checkpoint sync: number=129 file=base/16384/2691 time=0.202 ms
+2025-02-12 11:32:43.124 GMT [47] DEBUG:  checkpoint sync: number=130 file=base/16384/4163 time=0.673 ms
+2025-02-12 11:32:43.125 GMT [47] DEBUG:  checkpoint sync: number=131 file=base/16384/826 time=0.176 ms
+2025-02-12 11:32:43.125 GMT [47] DEBUG:  checkpoint sync: number=132 file=base/16384/3430 time=0.105 ms
+2025-02-12 11:32:43.125 GMT [47] DEBUG:  checkpoint sync: number=133 file=base/16384/3598 time=0.261 ms
+2025-02-12 11:32:43.125 GMT [47] DEBUG:  checkpoint sync: number=134 file=base/16384/6106 time=0.249 ms
+2025-02-12 11:32:43.125 GMT [47] DEBUG:  checkpoint sync: number=135 file=base/16384/2615_fsm time=0.161 ms
+2025-02-12 11:32:43.126 GMT [47] DEBUG:  checkpoint sync: number=136 file=base/16384/2603_vm time=0.766 ms
+2025-02-12 11:32:43.127 GMT [47] DEBUG:  checkpoint sync: number=137 file=base/16384/2663 time=0.280 ms
+2025-02-12 11:32:43.127 GMT [47] DEBUG:  checkpoint sync: number=138 file=base/16384/2684 time=0.814 ms
+2025-02-12 11:32:43.128 GMT [47] DEBUG:  checkpoint sync: number=139 file=base/16384/6111 time=0.612 ms
+2025-02-12 11:32:43.129 GMT [47] DEBUG:  checkpoint sync: number=140 file=base/16384/2836 time=1.034 ms
+2025-02-12 11:32:43.130 GMT [47] DEBUG:  checkpoint sync: number=141 file=base/16384/2685 time=0.405 ms
+2025-02-12 11:32:43.130 GMT [47] DEBUG:  checkpoint sync: number=142 file=base/16384/3602_fsm time=0.708 ms
+2025-02-12 11:32:43.131 GMT [47] DEBUG:  checkpoint sync: number=143 file=base/16384/4145 time=0.104 ms
+2025-02-12 11:32:43.131 GMT [47] DEBUG:  checkpoint sync: number=144 file=base/16384/2753_fsm time=0.433 ms
+2025-02-12 11:32:43.132 GMT [47] DEBUG:  checkpoint sync: number=145 file=base/16384/6102 time=0.288 ms
+2025-02-12 11:32:43.132 GMT [47] DEBUG:  checkpoint sync: number=146 file=base/16384/2656 time=0.285 ms
+2025-02-12 11:32:43.132 GMT [47] DEBUG:  checkpoint sync: number=147 file=base/16384/4158 time=0.416 ms
+2025-02-12 11:32:43.132 GMT [47] DEBUG:  checkpoint sync: number=148 file=base/16384/2612_fsm time=0.133 ms
+2025-02-12 11:32:43.133 GMT [47] DEBUG:  checkpoint sync: number=149 file=base/16384/2604 time=0.259 ms
+2025-02-12 11:32:43.133 GMT [47] DEBUG:  checkpoint sync: number=150 file=base/16384/13406 time=0.159 ms
+2025-02-12 11:32:43.133 GMT [47] DEBUG:  checkpoint sync: number=151 file=base/16384/2606 time=0.185 ms
+2025-02-12 11:32:43.134 GMT [47] DEBUG:  checkpoint sync: number=152 file=base/16384/3596 time=0.191 ms
+2025-02-12 11:32:43.134 GMT [47] DEBUG:  checkpoint sync: number=153 file=base/16384/4172 time=0.169 ms
+2025-02-12 11:32:43.134 GMT [47] DEBUG:  checkpoint sync: number=154 file=base/16384/2679 time=0.223 ms
+2025-02-12 11:32:43.134 GMT [47] DEBUG:  checkpoint sync: number=155 file=base/16384/3394 time=0.128 ms
+2025-02-12 11:32:43.135 GMT [47] DEBUG:  checkpoint sync: number=156 file=base/16384/2659 time=0.102 ms
+2025-02-12 11:32:43.135 GMT [47] DEBUG:  checkpoint sync: number=157 file=base/16384/6238 time=0.180 ms
+2025-02-12 11:32:43.135 GMT [47] DEBUG:  checkpoint sync: number=158 file=base/16384/13412 time=0.251 ms
+2025-02-12 11:32:43.135 GMT [47] DEBUG:  checkpoint sync: number=159 file=base/16384/4153 time=0.291 ms
+2025-02-12 11:32:43.135 GMT [47] DEBUG:  checkpoint sync: number=160 file=base/16384/2690 time=0.082 ms
+2025-02-12 11:32:43.136 GMT [47] DEBUG:  checkpoint sync: number=161 file=base/16384/4174 time=0.273 ms
+2025-02-12 11:32:43.136 GMT [47] DEBUG:  checkpoint sync: number=162 file=base/16384/6176 time=0.178 ms
+2025-02-12 11:32:43.136 GMT [47] DEBUG:  checkpoint sync: number=163 file=base/16384/2657 time=0.088 ms
+2025-02-12 11:32:43.136 GMT [47] DEBUG:  checkpoint sync: number=164 file=base/16384/3600_vm time=0.121 ms
+2025-02-12 11:32:43.136 GMT [47] DEBUG:  checkpoint sync: number=165 file=base/16384/3601 time=0.097 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=166 file=base/16384/2651 time=0.264 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=167 file=base/16384/2617_fsm time=0.197 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=168 file=base/16384/4147 time=0.215 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=169 file=base/16384/13393_fsm time=0.076 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=170 file=base/16384/2667 time=0.121 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=171 file=base/16384/3119 time=0.066 ms
+2025-02-12 11:32:43.137 GMT [47] DEBUG:  checkpoint sync: number=172 file=base/16384/13398_fsm time=0.120 ms
+2025-02-12 11:32:43.138 GMT [47] DEBUG:  checkpoint sync: number=173 file=base/16384/3599 time=0.186 ms
+2025-02-12 11:32:43.138 GMT [47] DEBUG:  checkpoint sync: number=174 file=base/16384/13397 time=0.139 ms
+2025-02-12 11:32:43.138 GMT [47] DEBUG:  checkpoint sync: number=175 file=base/16384/2834 time=0.279 ms
+2025-02-12 11:32:43.138 GMT [47] DEBUG:  checkpoint sync: number=176 file=base/16384/13411 time=0.106 ms
+2025-02-12 11:32:43.138 GMT [47] DEBUG:  checkpoint sync: number=177 file=base/16384/3079_vm time=0.098 ms
+2025-02-12 11:32:43.139 GMT [47] DEBUG:  checkpoint sync: number=178 file=base/16384/3439 time=0.705 ms
+2025-02-12 11:32:43.139 GMT [47] DEBUG:  checkpoint sync: number=179 file=base/16384/2605_vm time=0.129 ms
+2025-02-12 11:32:43.139 GMT [47] DEBUG:  checkpoint sync: number=180 file=base/16384/3456_vm time=0.199 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=181 file=base/16384/2996 time=0.206 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=182 file=base/16384/2669 time=0.111 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=183 file=base/16384/3764 time=0.107 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=184 file=base/16384/4156 time=0.107 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=185 file=base/16384/3766 time=0.195 ms
+2025-02-12 11:32:43.140 GMT [47] DEBUG:  checkpoint sync: number=186 file=base/16384/2609 time=0.098 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=187 file=base/16384/2686 time=0.082 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=188 file=base/16384/2699 time=0.076 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=189 file=base/16384/2608_fsm time=0.149 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=190 file=base/16384/3503 time=0.156 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=191 file=base/16384/827 time=0.132 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=192 file=base/16384/13398 time=0.093 ms
+2025-02-12 11:32:43.141 GMT [47] DEBUG:  checkpoint sync: number=193 file=base/16384/3081 time=0.076 ms
+2025-02-12 11:32:43.142 GMT [47] DEBUG:  checkpoint sync: number=194 file=base/16384/2616 time=0.356 ms
+2025-02-12 11:32:43.142 GMT [47] DEBUG:  checkpoint sync: number=195 file=base/16384/4165 time=0.701 ms
+2025-02-12 11:32:43.143 GMT [47] DEBUG:  checkpoint sync: number=196 file=base/16384/3541_fsm time=0.337 ms
+2025-02-12 11:32:43.143 GMT [47] DEBUG:  checkpoint sync: number=197 file=base/16384/2837 time=0.703 ms
+2025-02-12 11:32:43.144 GMT [47] DEBUG:  checkpoint sync: number=198 file=base/16384/3468 time=0.108 ms
+2025-02-12 11:32:43.144 GMT [47] DEBUG:  checkpoint sync: number=199 file=base/16384/2611 time=0.242 ms
+2025-02-12 11:32:43.144 GMT [47] DEBUG:  checkpoint sync: number=200 file=base/16384/3456_fsm time=0.119 ms
+2025-02-12 11:32:43.149 GMT [47] DEBUG:  checkpoint sync: number=201 file=base/16384/1259_fsm time=4.653 ms
+2025-02-12 11:32:43.149 GMT [47] DEBUG:  checkpoint sync: number=202 file=base/16384/2652 time=0.096 ms
+2025-02-12 11:32:43.149 GMT [47] DEBUG:  checkpoint sync: number=203 file=base/16384/2608 time=0.085 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=204 file=base/16384/2665 time=1.848 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=205 file=base/16384/4149 time=0.157 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=206 file=base/16384/3609 time=0.077 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=207 file=base/16384/174 time=0.084 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=208 file=base/16384/828 time=0.074 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=209 file=base/16384/3379 time=0.089 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=210 file=base/16384/548 time=0.069 ms
+2025-02-12 11:32:43.151 GMT [47] DEBUG:  checkpoint sync: number=211 file=base/16384/2673 time=0.071 ms
+2025-02-12 11:32:43.152 GMT [47] DEBUG:  checkpoint sync: number=212 file=base/16384/2601 time=0.107 ms
+2025-02-12 11:32:43.152 GMT [47] DEBUG:  checkpoint sync: number=213 file=base/16384/2830 time=0.203 ms
+2025-02-12 11:32:43.152 GMT [47] DEBUG:  checkpoint sync: number=214 file=base/16384/3542 time=0.154 ms
+2025-02-12 11:32:43.152 GMT [47] DEBUG:  checkpoint sync: number=215 file=base/16384/2609_vm time=0.075 ms
+2025-02-12 11:32:43.152 GMT [47] DEBUG:  checkpoint sync: number=216 file=base/16384/2835 time=0.097 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=217 file=base/16384/3606 time=0.075 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=218 file=base/16384/112 time=0.069 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=219 file=base/16384/2616_fsm time=0.099 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=220 file=base/16384/3501 time=0.089 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=221 file=pg_multixact/offsets/0000 time=0.499 ms
+2025-02-12 11:32:43.153 GMT [47] DEBUG:  checkpoint sync: number=222 file=base/16384/3164 time=0.174 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=223 file=base/16384/2662 time=0.194 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=224 file=base/16384/2612 time=0.068 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=225 file=base/16384/3534 time=0.068 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=226 file=base/16384/2602_vm time=0.079 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=227 file=global/2672 time=0.076 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=228 file=base/16384/4160 time=0.080 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=229 file=base/16384/6112 time=0.124 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=230 file=base/16384/13408_fsm time=0.067 ms
+2025-02-12 11:32:43.154 GMT [47] DEBUG:  checkpoint sync: number=231 file=base/16384/3764_vm time=0.067 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=232 file=base/16384/1247 time=0.071 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=233 file=base/16384/2754 time=0.097 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=234 file=base/16384/3604 time=0.084 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=235 file=base/16384/3351 time=0.073 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=236 file=base/16384/2610_vm time=0.086 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=237 file=base/16384/2608_vm time=0.070 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=238 file=base/16384/3079_fsm time=0.065 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=239 file=base/16384/2619_vm time=0.069 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=240 file=base/16384/2683 time=0.066 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=241 file=base/16384/2755 time=0.105 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=242 file=base/16384/2696 time=0.067 ms
+2025-02-12 11:32:43.155 GMT [47] DEBUG:  checkpoint sync: number=243 file=base/16384/2328 time=0.085 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=244 file=base/16384/2840_vm time=0.065 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=245 file=global/1262 time=0.097 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=246 file=base/16384/2337 time=0.068 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=247 file=base/16384/13403_vm time=0.099 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=248 file=base/16384/3258 time=0.070 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=249 file=base/16384/3600_fsm time=0.068 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=250 file=base/16384/3502 time=0.094 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=251 file=base/16384/6229 time=0.069 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=252 file=base/16384/4168 time=0.072 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=253 file=base/16384/2619_fsm time=0.068 ms
+2025-02-12 11:32:43.156 GMT [47] DEBUG:  checkpoint sync: number=254 file=base/16384/2607_vm time=0.104 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=255 file=base/16384/3431 time=0.068 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=256 file=base/16384/3712 time=0.104 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=257 file=base/16384/3575 time=0.064 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=258 file=base/16384/3600 time=0.083 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=259 file=base/16384/4159 time=0.081 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=260 file=base/16384/2603_fsm time=0.086 ms
+2025-02-12 11:32:43.157 GMT [47] DEBUG:  checkpoint sync: number=261 file=base/16384/3350 time=0.182 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=262 file=base/16384/2607 time=2.448 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=263 file=base/16384/3394_fsm time=0.101 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=264 file=base/16384/6113 time=0.121 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=265 file=base/16384/3433 time=0.112 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=266 file=base/16384/13393_vm time=0.178 ms
+2025-02-12 11:32:43.160 GMT [47] DEBUG:  checkpoint sync: number=267 file=base/16384/3603_vm time=0.172 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=268 file=base/16384/13398_vm time=0.136 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=269 file=base/16384/3380 time=0.178 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=270 file=base/16384/2613 time=0.123 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=271 file=base/16384/3597 time=0.092 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=272 file=base/16384/3455 time=0.081 ms
+2025-02-12 11:32:43.161 GMT [47] DEBUG:  checkpoint sync: number=273 file=base/16384/1418 time=0.274 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=274 file=base/16384/3079 time=0.118 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=275 file=base/16384/2678 time=0.241 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=276 file=base/16384/3602_vm time=0.230 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=277 file=base/16384/4154 time=0.119 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=278 file=base/16384/4146 time=0.074 ms
+2025-02-12 11:32:43.162 GMT [47] DEBUG:  checkpoint sync: number=279 file=base/16384/2995 time=0.104 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=280 file=base/16384/3764_fsm time=0.071 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=281 file=base/16384/3257 time=0.071 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=282 file=base/16384/2753 time=0.089 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=283 file=base/16384/3085 time=0.068 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=284 file=base/16384/2653 time=0.070 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=285 file=base/16384/4144 time=0.070 ms
+2025-02-12 11:32:43.163 GMT [47] DEBUG:  checkpoint sync: number=286 file=base/16384/2689 time=0.384 ms
+2025-02-12 11:32:43.164 GMT [47] DEBUG:  checkpoint sync: number=287 file=base/16384/113 time=0.445 ms
+2025-02-12 11:32:43.164 GMT [47] DEBUG:  checkpoint sync: number=288 file=base/16384/2600_vm time=0.628 ms
+2025-02-12 11:32:43.166 GMT [47] DEBUG:  checkpoint sync: number=289 file=base/16384/2660 time=1.194 ms
+2025-02-12 11:32:43.166 GMT [47] DEBUG:  checkpoint sync: number=290 file=base/16384/1249 time=0.435 ms
+2025-02-12 11:32:43.167 GMT [47] DEBUG:  checkpoint sync: number=291 file=base/16384/2605 time=0.255 ms
+2025-02-12 11:32:43.168 GMT [47] DEBUG:  checkpoint sync: number=292 file=base/16384/6117 time=1.208 ms
+2025-02-12 11:32:43.169 GMT [47] DEBUG:  checkpoint sync: number=293 file=base/16384/2602 time=1.298 ms
+2025-02-12 11:32:43.170 GMT [47] DEBUG:  checkpoint sync: number=294 file=base/16384/4148 time=0.703 ms
+2025-02-12 11:32:43.170 GMT [47] DEBUG:  checkpoint sync: number=295 file=base/16384/2682 time=0.191 ms
+2025-02-12 11:32:43.170 GMT [47] DEBUG:  checkpoint sync: number=296 file=base/16384/1259 time=0.194 ms
+2025-02-12 11:32:43.171 GMT [47] DEBUG:  checkpoint sync: number=297 file=base/16384/1259_vm time=0.253 ms
+2025-02-12 11:32:43.171 GMT [47] DEBUG:  checkpoint sync: number=298 file=base/16384/3467 time=0.304 ms
+2025-02-12 11:32:43.172 GMT [47] DEBUG:  checkpoint sync: number=299 file=base/16384/1255_vm time=1.150 ms
+2025-02-12 11:32:43.177 GMT [47] DEBUG:  checkpoint sync: number=300 file=base/16384/13393 time=4.297 ms
+2025-02-12 11:32:43.177 GMT [47] DEBUG:  checkpoint sync: number=301 file=base/16384/13401 time=0.133 ms
+2025-02-12 11:32:43.181 GMT [47] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.070 s, sync=0.098 s, total=0.179 s; sync files=301, longest=0.005 s, average=0.001 s; distance=4222 kB, estimate=4222 kB
+2025-02-12 11:32:43.206 GMT [45] LOG:  database system is shut down
+2025-02-12 11:32:43.233 GMT [46] DEBUG:  logger shutting down
+2025-02-12 11:32:43.375 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-12 11:32:43.377 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-12 11:32:43.377 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-12 11:32:43.383 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-12 11:32:43.396 GMT [63] LOG:  database system was shut down at 2025-02-12 11:32:43 GMT
+2025-02-12 11:32:43.400 GMT [63] DEBUG:  checkpoint record is at 0/1920C40
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  redo record is at 0/1920C40; shutdown true
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  next transaction ID: 726; next OID: 16385
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  starting up replication slots
+2025-02-12 11:32:43.401 GMT [63] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-12 11:32:43.404 GMT [63] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 11:32:43.404 GMT [63] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-12 11:32:43.416 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-12 11:32:43.419 GMT [1] LOG:  database system is ready to accept connections
+2025-02-12 11:32:43.421 GMT [65] DEBUG:  autovacuum launcher started
+2025-02-12 11:32:43.430 GMT [66] DEBUG:  logical replication launcher started
+2025-02-12 11:32:44.188 GMT [67] LOG:  statement: BEGIN
+2025-02-12 11:32:44.189 GMT [67] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-12 11:32:44.194 GMT [67] LOG:  statement: ROLLBACK
+2025-02-12 11:32:44.198 GMT [67] LOG:  statement: BEGIN
+2025-02-12 11:32:44.199 GMT [67] LOG:  statement: select pg_catalog.version()
+2025-02-12 11:32:44.203 GMT [67] LOG:  statement: select current_schema()
+2025-02-12 11:32:44.203 GMT [67] LOG:  statement: show transaction isolation level
+2025-02-12 11:32:44.204 GMT [67] LOG:  statement: show standard_conforming_strings
+2025-02-12 11:32:44.205 GMT [67] LOG:  statement: ROLLBACK
+2025-02-12 11:32:44.217 GMT [67] LOG:  statement: BEGIN
+2025-02-12 11:32:44.218 GMT [67] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-12 11:32:44.221 GMT [67] LOG:  statement: 
+	CREATE TABLE users (
+		id SERIAL NOT NULL, 
+		email VARCHAR NOT NULL, 
+		password VARCHAR NOT NULL, 
+		PRIMARY KEY (id)
+	)
+	
+	
+2025-02-12 11:32:44.221 GMT [67] DEBUG:  CREATE TABLE will create implicit sequence "users_id_seq" for serial column "users.id"
+2025-02-12 11:32:44.227 GMT [67] DEBUG:  building index "pg_toast_16386_index" on table "pg_toast_16386" serially
+2025-02-12 11:32:44.227 GMT [67] DEBUG:  index "pg_toast_16386_index" can safely use deduplication
+2025-02-12 11:32:44.229 GMT [67] DEBUG:  CREATE TABLE / PRIMARY KEY will create implicit index "users_pkey" for table "users"
+2025-02-12 11:32:44.230 GMT [67] DEBUG:  building index "users_pkey" on table "users" serially
+2025-02-12 11:32:44.230 GMT [67] DEBUG:  index "users_pkey" can safely use deduplication
+2025-02-12 11:32:44.234 GMT [67] LOG:  statement: CREATE UNIQUE INDEX ix_users_email ON users (email)
+2025-02-12 11:32:44.235 GMT [67] DEBUG:  building index "ix_users_email" on table "users" serially
+2025-02-12 11:32:44.235 GMT [67] DEBUG:  index "ix_users_email" can safely use deduplication
+2025-02-12 11:32:44.239 GMT [67] LOG:  statement: CREATE INDEX ix_users_id ON users (id)
+2025-02-12 11:32:44.239 GMT [67] DEBUG:  building index "ix_users_id" on table "users" serially
+2025-02-12 11:32:44.239 GMT [67] DEBUG:  index "ix_users_id" can safely use deduplication
+2025-02-12 11:32:44.244 GMT [67] LOG:  statement: COMMIT
+2025-02-12 11:33:13.478 GMT [88] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:33:33.498 GMT [101] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:33:53.488 GMT [118] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:34:13.496 GMT [131] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:34:33.514 GMT [144] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:34:53.503 GMT [161] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:35:13.508 GMT [174] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:35:33.513 GMT [187] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:35:53.499 GMT [204] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:36:13.526 GMT [217] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:36:33.529 GMT [230] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:36:53.515 GMT [247] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:37:13.533 GMT [260] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:37:33.538 GMT [273] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:37:43.496 GMT [61] LOG:  checkpoint starting: time
+2025-02-12 11:37:43.496 GMT [61] DEBUG:  performing replication slot checkpoint
+2025-02-12 11:37:50.881 GMT [61] DEBUG:  checkpoint sync: number=1 file=base/1/2840_vm time=12.711 ms
+2025-02-12 11:37:50.887 GMT [61] DEBUG:  checkpoint sync: number=2 file=base/16384/2678 time=5.694 ms
+2025-02-12 11:37:50.887 GMT [61] DEBUG:  checkpoint sync: number=3 file=base/16384/2663 time=0.534 ms
+2025-02-12 11:37:50.888 GMT [61] DEBUG:  checkpoint sync: number=4 file=base/16384/2656 time=0.230 ms
+2025-02-12 11:37:50.888 GMT [61] DEBUG:  checkpoint sync: number=5 file=base/16384/2610_fsm time=0.261 ms
+2025-02-12 11:37:50.889 GMT [61] DEBUG:  checkpoint sync: number=6 file=base/16384/2604 time=0.712 ms
+2025-02-12 11:37:50.889 GMT [61] DEBUG:  checkpoint sync: number=7 file=base/16384/2658 time=0.278 ms
+2025-02-12 11:37:50.889 GMT [61] DEBUG:  checkpoint sync: number=8 file=base/16384/2606 time=0.251 ms
+2025-02-12 11:37:50.890 GMT [61] DEBUG:  checkpoint sync: number=9 file=base/16384/2679 time=0.259 ms
+2025-02-12 11:37:50.890 GMT [61] DEBUG:  checkpoint sync: number=10 file=base/16384/16395 time=0.321 ms
+2025-02-12 11:37:50.891 GMT [61] DEBUG:  checkpoint sync: number=11 file=base/16384/2659 time=0.491 ms
+2025-02-12 11:37:50.891 GMT [61] DEBUG:  checkpoint sync: number=12 file=base/16384/16392 time=0.451 ms
+2025-02-12 11:37:50.891 GMT [61] DEBUG:  checkpoint sync: number=13 file=base/16384/2657 time=0.302 ms
+2025-02-12 11:37:50.892 GMT [61] DEBUG:  checkpoint sync: number=14 file=base/1/2619 time=0.347 ms
+2025-02-12 11:37:50.892 GMT [61] DEBUG:  checkpoint sync: number=15 file=base/16384/1249 time=0.213 ms
+2025-02-12 11:37:50.892 GMT [61] DEBUG:  checkpoint sync: number=16 file=base/16384/2667 time=0.244 ms
+2025-02-12 11:37:50.893 GMT [61] DEBUG:  checkpoint sync: number=17 file=base/16384/1259 time=0.220 ms
+2025-02-12 11:37:50.893 GMT [61] DEBUG:  checkpoint sync: number=18 file=base/16384/1259_vm time=0.608 ms
+2025-02-12 11:37:50.895 GMT [61] DEBUG:  checkpoint sync: number=19 file=base/16384/16386 time=1.787 ms
+2025-02-12 11:37:50.895 GMT [61] DEBUG:  checkpoint sync: number=20 file=base/16384/16391 time=0.257 ms
+2025-02-12 11:37:50.896 GMT [61] DEBUG:  checkpoint sync: number=21 file=base/16384/2608_fsm time=0.404 ms
+2025-02-12 11:37:50.896 GMT [61] DEBUG:  checkpoint sync: number=22 file=base/16384/2579 time=0.179 ms
+2025-02-12 11:37:50.896 GMT [61] DEBUG:  checkpoint sync: number=23 file=base/16384/16390 time=0.303 ms
+2025-02-12 11:37:50.896 GMT [61] DEBUG:  checkpoint sync: number=24 file=base/16384/2608 time=0.083 ms
+2025-02-12 11:37:50.896 GMT [61] DEBUG:  checkpoint sync: number=25 file=base/16384/1249_fsm time=0.108 ms
+2025-02-12 11:37:50.897 GMT [61] DEBUG:  checkpoint sync: number=26 file=base/16384/2606_vm time=0.273 ms
+2025-02-12 11:37:50.897 GMT [61] DEBUG:  checkpoint sync: number=27 file=base/16384/2665 time=0.379 ms
+2025-02-12 11:37:50.897 GMT [61] DEBUG:  checkpoint sync: number=28 file=base/16384/2674 time=0.286 ms
+2025-02-12 11:37:50.898 GMT [61] DEBUG:  checkpoint sync: number=29 file=base/16384/2703 time=0.277 ms
+2025-02-12 11:37:50.898 GMT [61] DEBUG:  checkpoint sync: number=30 file=base/16384/2673 time=0.258 ms
+2025-02-12 11:37:50.899 GMT [61] DEBUG:  checkpoint sync: number=31 file=base/16384/16394 time=0.899 ms
+2025-02-12 11:37:50.899 GMT [61] DEBUG:  checkpoint sync: number=32 file=base/16384/2610 time=0.152 ms
+2025-02-12 11:37:50.899 GMT [61] DEBUG:  checkpoint sync: number=33 file=base/16384/1247_vm time=0.253 ms
+2025-02-12 11:37:50.900 GMT [61] DEBUG:  checkpoint sync: number=34 file=base/1/2696 time=0.234 ms
+2025-02-12 11:37:50.901 GMT [61] DEBUG:  checkpoint sync: number=35 file=pg_multixact/offsets/0000 time=1.149 ms
+2025-02-12 11:37:50.902 GMT [61] DEBUG:  checkpoint sync: number=36 file=base/16384/2662 time=1.249 ms
+2025-02-12 11:37:50.902 GMT [61] DEBUG:  checkpoint sync: number=37 file=base/16384/16385 time=0.208 ms
+2025-02-12 11:37:50.903 GMT [61] DEBUG:  checkpoint sync: number=38 file=base/16384/1247 time=0.323 ms
+2025-02-12 11:37:50.904 GMT [61] DEBUG:  checkpoint sync: number=39 file=base/16384/2608_vm time=0.863 ms
+2025-02-12 11:37:50.904 GMT [61] DEBUG:  checkpoint sync: number=40 file=base/16384/2610_vm time=0.305 ms
+2025-02-12 11:37:50.904 GMT [61] DEBUG:  checkpoint sync: number=41 file=global/1262 time=0.396 ms
+2025-02-12 11:37:50.905 GMT [61] DEBUG:  checkpoint sync: number=42 file=base/16384/2664 time=0.201 ms
+2025-02-12 11:37:50.905 GMT [61] DEBUG:  checkpoint sync: number=43 file=base/1/2841 time=0.319 ms
+2025-02-12 11:37:50.906 GMT [61] DEBUG:  checkpoint sync: number=44 file=pg_xact/0000 time=1.018 ms
+2025-02-12 11:37:50.906 GMT [61] DEBUG:  checkpoint sync: number=45 file=base/16384/2666 time=0.325 ms
+2025-02-12 11:37:50.907 GMT [61] DEBUG:  checkpoint sync: number=46 file=base/16384/2224 time=0.263 ms
+2025-02-12 11:37:50.908 GMT [61] DEBUG:  checkpoint sync: number=47 file=base/16384/2704 time=0.630 ms
+2025-02-12 11:37:50.908 GMT [61] DEBUG:  checkpoint sync: number=48 file=base/16384/1249_vm time=0.231 ms
+2025-02-12 11:37:50.908 GMT [61] DEBUG:  checkpoint sync: number=49 file=base/16384/5002 time=0.348 ms
+2025-02-12 11:37:50.908 GMT [61] DEBUG:  checkpoint sync: number=50 file=base/1/2840 time=0.127 ms
+2025-02-12 11:37:50.909 GMT [61] DEBUG:  checkpoint sync: number=51 file=base/1/2619_vm time=0.180 ms
+2025-02-12 11:37:50.909 GMT [61] DEBUG:  checkpoint sync: number=52 file=base/1/2840_fsm time=0.391 ms
+2025-02-12 11:37:50.910 GMT [61] DEBUG:  checkpoint sync: number=53 file=base/1/2619_fsm time=1.060 ms
+2025-02-12 11:37:50.911 GMT [61] DEBUG:  checkpoint sync: number=54 file=base/16384/3455 time=0.378 ms
+2025-02-12 11:37:50.914 GMT [61] LOG:  checkpoint complete: wrote 76 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=7.366 s, sync=0.043 s, total=7.419 s; sync files=54, longest=0.013 s, average=0.001 s; distance=234 kB, estimate=234 kB
+2025-02-12 11:37:53.531 GMT [290] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:38:13.542 GMT [303] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:38:33.558 GMT [316] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:38:53.548 GMT [333] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:39:13.549 GMT [346] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:39:33.561 GMT [359] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:39:53.565 GMT [376] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:40:13.554 GMT [389] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:40:33.566 GMT [402] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:40:53.570 GMT [419] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:41:13.577 GMT [432] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:41:33.571 GMT [445] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:41:53.593 GMT [462] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:42:13.596 GMT [475] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:42:33.583 GMT [488] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:42:43.974 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 11:42:53.612 GMT [505] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:43:13.599 GMT [518] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:43:33.585 GMT [531] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:43:53.709 GMT [548] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:44:13.615 GMT [561] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:45:18.601 GMT [566] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:45:38.459 GMT [583] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:45:58.475 GMT [596] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:46:18.469 GMT [609] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:46:38.468 GMT [626] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:46:58.483 GMT [639] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:47:18.490 GMT [652] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:47:38.491 GMT [669] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:47:44.028 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 11:47:58.485 GMT [682] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:48:18.508 GMT [695] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:48:38.502 GMT [712] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:48:58.506 GMT [725] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:49:18.528 GMT [738] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:49:38.524 GMT [755] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:49:58.518 GMT [768] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:50:18.543 GMT [781] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:50:38.541 GMT [798] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:50:58.538 GMT [811] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:51:18.571 GMT [824] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:51:38.556 GMT [841] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:51:58.550 GMT [854] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:52:18.592 GMT [867] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:52:24.619 GMT [67] LOG:  statement: BEGIN
+2025-02-12 11:52:24.620 GMT [67] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 11:52:24.628 GMT [67] LOG:  statement: ROLLBACK
+2025-02-12 11:52:38.566 GMT [884] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:52:44.124 GMT [61] LOG:  checkpoint starting: time
+2025-02-12 11:52:44.125 GMT [61] DEBUG:  performing replication slot checkpoint
+2025-02-12 11:52:44.844 GMT [61] DEBUG:  checkpoint sync: number=1 file=base/16384/2604 time=3.291 ms
+2025-02-12 11:52:44.845 GMT [61] DEBUG:  checkpoint sync: number=2 file=base/16384/2659 time=0.442 ms
+2025-02-12 11:52:44.845 GMT [61] DEBUG:  checkpoint sync: number=3 file=base/16384/1249 time=0.486 ms
+2025-02-12 11:52:44.846 GMT [61] DEBUG:  checkpoint sync: number=4 file=base/16384/2610 time=0.578 ms
+2025-02-12 11:52:44.851 GMT [61] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.708 s, sync=0.006 s, total=0.727 s; sync files=4, longest=0.004 s, average=0.002 s; distance=8 kB, estimate=211 kB
+2025-02-12 11:52:58.562 GMT [897] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:53:18.603 GMT [910] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:53:38.569 GMT [927] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:53:58.584 GMT [940] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:54:18.618 GMT [953] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:54:38.583 GMT [970] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:54:58.596 GMT [983] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:55:18.639 GMT [996] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:55:38.592 GMT [1013] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:55:58.603 GMT [1026] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:56:18.647 GMT [1039] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:56:38.664 GMT [1056] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:56:58.624 GMT [1069] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:57:18.664 GMT [1082] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:57:38.671 GMT [1099] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:57:44.885 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 11:57:58.633 GMT [1112] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:58:18.670 GMT [1125] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:58:38.699 GMT [1142] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:58:58.655 GMT [1155] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 11:59:18.693 GMT [1168] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 11:59:35.056 GMT [67] DEBUG:  unexpected EOF on client connection
+2025-02-12 11:59:37.864 GMT [1185] LOG:  statement: BEGIN
+2025-02-12 11:59:37.864 GMT [1185] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-12 11:59:37.867 GMT [1185] LOG:  statement: ROLLBACK
+2025-02-12 11:59:37.867 GMT [1185] LOG:  statement: BEGIN
+2025-02-12 11:59:37.868 GMT [1185] LOG:  statement: select pg_catalog.version()
+2025-02-12 11:59:37.872 GMT [1185] LOG:  statement: select current_schema()
+2025-02-12 11:59:37.873 GMT [1185] LOG:  statement: show transaction isolation level
+2025-02-12 11:59:37.873 GMT [1185] LOG:  statement: show standard_conforming_strings
+2025-02-12 11:59:37.875 GMT [1185] LOG:  statement: ROLLBACK
+2025-02-12 11:59:37.884 GMT [1185] LOG:  statement: BEGIN
+2025-02-12 11:59:37.884 GMT [1185] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-12 11:59:37.886 GMT [1185] LOG:  statement: COMMIT
+2025-02-12 11:59:38.705 GMT [1186] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 11:59:58.654 GMT [1199] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:00:13.854 GMT [1185] DEBUG:  unexpected EOF on client connection
+2025-02-12 12:00:15.324 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:00:15.324 GMT [1212] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-12 12:00:15.325 GMT [1212] LOG:  statement: ROLLBACK
+2025-02-12 12:00:15.326 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:00:15.326 GMT [1212] LOG:  statement: select pg_catalog.version()
+2025-02-12 12:00:15.337 GMT [1212] LOG:  statement: select current_schema()
+2025-02-12 12:00:15.338 GMT [1212] LOG:  statement: show transaction isolation level
+2025-02-12 12:00:15.339 GMT [1212] LOG:  statement: show standard_conforming_strings
+2025-02-12 12:00:15.340 GMT [1212] LOG:  statement: ROLLBACK
+2025-02-12 12:00:15.354 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:00:15.354 GMT [1212] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-12 12:00:15.356 GMT [1212] LOG:  statement: COMMIT
+2025-02-12 12:00:18.717 GMT [1213] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:00:38.719 GMT [1230] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:00:58.656 GMT [1243] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:01:16.553 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:01:16.553 GMT [1212] LOG:  statement: INSERT INTO users (email, password) VALUES ('uddser@example.com', 'sedcurepassword') RETURNING users.id
+2025-02-12 12:01:16.555 GMT [1212] LOG:  statement: COMMIT
+2025-02-12 12:01:16.559 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:01:16.559 GMT [1212] LOG:  statement: SELECT users.id, users.email, users.password 
+	FROM users 
+	WHERE users.id = 1
+2025-02-12 12:01:16.562 GMT [1212] LOG:  statement: ROLLBACK
+2025-02-12 12:01:18.730 GMT [1256] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:01:33.088 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:01:33.088 GMT [1212] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 12:01:33.094 GMT [1212] LOG:  statement: ROLLBACK
+2025-02-12 12:01:38.731 GMT [1273] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:01:50.341 GMT [1212] LOG:  statement: BEGIN
+2025-02-12 12:01:50.341 GMT [1212] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	WHERE users.id = 1 
+	 LIMIT 1
+2025-02-12 12:01:50.346 GMT [1212] LOG:  statement: ROLLBACK
+2025-02-12 12:01:58.666 GMT [1286] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:02:18.749 GMT [1299] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:02:38.737 GMT [1316] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:02:44.974 GMT [61] LOG:  checkpoint starting: time
+2025-02-12 12:02:44.975 GMT [61] DEBUG:  performing replication slot checkpoint
+2025-02-12 12:02:45.890 GMT [61] DEBUG:  checkpoint sync: number=1 file=base/16384/16395 time=4.080 ms
+2025-02-12 12:02:45.890 GMT [61] DEBUG:  checkpoint sync: number=2 file=base/16384/16392 time=0.420 ms
+2025-02-12 12:02:45.891 GMT [61] DEBUG:  checkpoint sync: number=3 file=base/16384/16386 time=0.558 ms
+2025-02-12 12:02:45.892 GMT [61] DEBUG:  checkpoint sync: number=4 file=base/16384/16394 time=0.584 ms
+2025-02-12 12:02:45.893 GMT [61] DEBUG:  checkpoint sync: number=5 file=base/16384/16385 time=0.476 ms
+2025-02-12 12:02:45.895 GMT [61] DEBUG:  checkpoint sync: number=6 file=pg_xact/0000 time=1.790 ms
+2025-02-12 12:02:45.895 GMT [61] DEBUG:  checkpoint sync: number=7 file=base/16384/2224 time=0.484 ms
+2025-02-12 12:02:45.900 GMT [61] LOG:  checkpoint complete: wrote 10 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.906 s, sync=0.010 s, total=0.926 s; sync files=7, longest=0.005 s, average=0.002 s; distance=1 kB, estimate=190 kB
+2025-02-12 12:02:58.683 GMT [1329] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:03:18.770 GMT [1342] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:03:38.809 GMT [1359] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:03:58.703 GMT [1372] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:04:18.790 GMT [1385] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:04:38.770 GMT [1402] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:04:58.713 GMT [1415] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:05:18.791 GMT [1432] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:05:38.797 GMT [1445] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:05:58.716 GMT [1458] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:06:18.816 GMT [1475] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:06:38.817 GMT [1488] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:06:58.735 GMT [1501] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:07:18.810 GMT [1518] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:07:38.836 GMT [1531] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:07:44.961 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 12:07:58.740 GMT [1544] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:08:18.819 GMT [1561] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:08:38.852 GMT [1574] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:08:58.761 GMT [1587] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:09:18.827 GMT [1604] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:09:38.853 GMT [1617] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:09:58.769 GMT [1630] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:10:18.849 GMT [1647] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:10:38.874 GMT [1660] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:10:58.787 GMT [1673] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:11:18.856 GMT [1690] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:11:38.893 GMT [1703] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:11:58.802 GMT [1716] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:12:18.875 GMT [1733] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:12:38.897 GMT [1746] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:12:45.017 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 12:12:58.823 GMT [1759] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:13:18.896 GMT [1776] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:13:38.915 GMT [1789] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:13:58.830 GMT [1802] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:14:18.916 GMT [1819] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:14:38.916 GMT [1832] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:14:58.846 GMT [1845] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:15:18.935 GMT [1862] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:15:38.942 GMT [1875] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:15:58.852 GMT [1888] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:16:18.953 GMT [1905] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:16:38.956 GMT [1918] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:16:58.858 GMT [1931] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:17:18.976 GMT [1948] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:17:38.978 GMT [1961] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:17:45.051 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 12:17:58.920 GMT [1974] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:18:18.981 GMT [1991] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:18:38.972 GMT [2004] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:18:58.914 GMT [2021] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:19:19.000 GMT [2034] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:19:38.993 GMT [2047] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:19:58.935 GMT [2064] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:20:19.023 GMT [2077] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:20:39.015 GMT [2090] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:20:58.975 GMT [2107] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:21:19.042 GMT [2120] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:21:39.014 GMT [2133] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:21:57.436 GMT [1212] DEBUG:  unexpected EOF on client connection
+2025-02-12 12:21:59.012 GMT [2147] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:22:00.050 GMT [2151] LOG:  statement: BEGIN
+2025-02-12 12:22:00.050 GMT [2151] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-12 12:22:00.052 GMT [2151] LOG:  statement: ROLLBACK
+2025-02-12 12:22:00.052 GMT [2151] LOG:  statement: BEGIN
+2025-02-12 12:22:00.052 GMT [2151] LOG:  statement: select pg_catalog.version()
+2025-02-12 12:22:00.061 GMT [2151] LOG:  statement: select current_schema()
+2025-02-12 12:22:00.062 GMT [2151] LOG:  statement: show transaction isolation level
+2025-02-12 12:22:00.064 GMT [2151] LOG:  statement: show standard_conforming_strings
+2025-02-12 12:22:00.065 GMT [2151] LOG:  statement: ROLLBACK
+2025-02-12 12:22:00.086 GMT [2151] LOG:  statement: BEGIN
+2025-02-12 12:22:00.088 GMT [2151] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-12 12:22:00.095 GMT [2151] LOG:  statement: COMMIT
+2025-02-12 12:22:19.053 GMT [2164] DEBUG:  autovacuum: processing database "template1"
+2025-02-12 12:22:23.133 GMT [2151] DEBUG:  unexpected EOF on client connection
+2025-02-12 12:22:39.019 GMT [2177] DEBUG:  autovacuum: processing database "postgres"
+2025-02-12 12:22:45.151 GMT [61] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 12:22:45.577 GMT [2182] LOG:  statement: BEGIN
+2025-02-12 12:22:45.577 GMT [2182] LOG:  statement: SELECT t.oid, typarray
+	FROM pg_type t JOIN pg_namespace ns
+	    ON typnamespace = ns.oid
+	WHERE typname = 'hstore';
+	
+2025-02-12 12:22:45.578 GMT [2182] LOG:  statement: ROLLBACK
+2025-02-12 12:22:45.579 GMT [2182] LOG:  statement: BEGIN
+2025-02-12 12:22:45.579 GMT [2182] LOG:  statement: select pg_catalog.version()
+2025-02-12 12:22:45.580 GMT [2182] LOG:  statement: select current_schema()
+2025-02-12 12:22:45.581 GMT [2182] LOG:  statement: show transaction isolation level
+2025-02-12 12:22:45.581 GMT [2182] LOG:  statement: show standard_conforming_strings
+2025-02-12 12:22:45.582 GMT [2182] LOG:  statement: ROLLBACK
+2025-02-12 12:22:45.587 GMT [2182] LOG:  statement: BEGIN
+2025-02-12 12:22:45.588 GMT [2182] LOG:  statement: SELECT pg_catalog.pg_class.relname 
+	FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+	WHERE pg_catalog.pg_class.relname = 'users' AND pg_catalog.pg_class.relkind = ANY (ARRAY['r', 'p', 'f', 'v', 'm']) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != 'pg_catalog'
+2025-02-12 12:22:45.591 GMT [2182] LOG:  statement: COMMIT
+2025-02-12 12:22:57.933 GMT [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+2025-02-12 12:22:57.933 GMT [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2025-02-12 12:22:57.933 GMT [1] LOG:  listening on IPv6 address "::", port 5432
+2025-02-12 12:22:57.947 GMT [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2025-02-12 12:22:57.955 GMT [24] LOG:  database system was interrupted; last known up at 2025-02-12 12:02:45 GMT
+2025-02-12 12:22:58.059 GMT [28] FATAL:  the database system is starting up
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  checkpoint record is at 0/195DA48
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  redo record is at 0/195DA10; shutdown false
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  next transaction ID: 730; next OID: 24577
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  next MultiXactId: 1; next MultiXactOffset: 0
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  oldest unfrozen transaction ID: 717, in database 1
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  oldest MultiXactId: 1, in database 1
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  commit timestamp Xid oldest/newest: 0/0
+2025-02-12 12:22:58.139 GMT [24] LOG:  database system was not properly shut down; automatic recovery in progress
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  transaction ID wrap limit is 2147484364, limited by database with OID 1
+2025-02-12 12:22:58.139 GMT [24] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 12:22:58.140 GMT [24] DEBUG:  starting up replication slots
+2025-02-12 12:22:58.140 GMT [24] DEBUG:  xmin required by slots: data 0, catalog 0
+2025-02-12 12:22:58.142 GMT [24] DEBUG:  resetting unlogged relations: cleanup 1 init 0
+2025-02-12 12:22:58.142 GMT [24] LOG:  redo starts at 0/195DA10
+2025-02-12 12:22:58.142 GMT [24] LOG:  invalid record length at 0/195DAF8: wanted 24, got 0
+2025-02-12 12:22:58.142 GMT [24] LOG:  redo done at 0/195DAC0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2025-02-12 12:22:58.142 GMT [24] DEBUG:  resetting unlogged relations: cleanup 0 init 1
+2025-02-12 12:22:58.144 GMT [24] DEBUG:  MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2025-02-12 12:22:58.144 GMT [24] DEBUG:  MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2025-02-12 12:22:58.145 GMT [22] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-02-12 12:22:58.145 GMT [22] DEBUG:  performing replication slot checkpoint
+2025-02-12 12:22:58.149 GMT [22] DEBUG:  checkpoint sync: number=1 file=pg_multixact/offsets/0000 time=0.970 ms
+2025-02-12 12:22:58.149 GMT [22] DEBUG:  checkpoint sync: number=2 file=pg_xact/0000 time=0.471 ms
+2025-02-12 12:22:58.151 GMT [22] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.007 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2025-02-12 12:22:58.154 GMT [1] DEBUG:  starting background worker process "logical replication launcher"
+2025-02-12 12:22:58.154 GMT [1] LOG:  database system is ready to accept connections
+2025-02-12 12:22:58.155 GMT [30] DEBUG:  autovacuum launcher started
+2025-02-12 12:22:58.155 GMT [31] DEBUG:  logical replication launcher started
+2025-02-12 12:23:58.196 GMT [72] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:24:58.203 GMT [113] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:25:27.298 GMT [134] LOG:  statement: BEGIN
+2025-02-12 12:25:27.298 GMT [134] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 12:25:27.302 GMT [134] LOG:  statement: ROLLBACK
+2025-02-12 12:25:30.398 GMT [134] LOG:  statement: BEGIN
+2025-02-12 12:25:30.399 GMT [134] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 12:25:30.401 GMT [134] LOG:  statement: ROLLBACK
+2025-02-12 12:25:41.166 GMT [134] LOG:  statement: BEGIN
+2025-02-12 12:25:41.166 GMT [134] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 12:25:41.171 GMT [134] LOG:  statement: ROLLBACK
+2025-02-12 12:25:58.221 GMT [155] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:26:52.875 GMT [134] LOG:  statement: BEGIN
+2025-02-12 12:26:52.876 GMT [134] LOG:  statement: SELECT users.id AS users_id, users.email AS users_email, users.password AS users_password 
+	FROM users 
+	 LIMIT 100 OFFSET 0
+2025-02-12 12:26:52.879 GMT [134] LOG:  statement: ROLLBACK
+2025-02-12 12:26:58.257 GMT [196] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:27:58.240 GMT [22] DEBUG:  checkpoint skipped because system is idle
+2025-02-12 12:27:58.318 GMT [237] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:28:58.372 GMT [278] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:29:58.415 GMT [319] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:30:58.459 GMT [360] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:31:58.513 GMT [401] DEBUG:  autovacuum: processing database "fastapi_db"
+2025-02-12 12:32:36.254 GMT [1] LOG:  received fast shutdown request
+2025-02-12 12:32:36.271 GMT [1] LOG:  aborting any active transactions
+2025-02-12 12:32:36.271 GMT [31] DEBUG:  logical replication launcher shutting down
+2025-02-12 12:32:36.272 GMT [30] DEBUG:  autovacuum launcher shutting down
+2025-02-12 12:32:36.290 GMT [134] FATAL:  terminating connection due to administrator command
+2025-02-12 12:32:36.306 GMT [1] LOG:  background worker "logical replication launcher" (PID 31) exited with exit code 1
+2025-02-12 12:32:36.308 GMT [22] LOG:  shutting down
+2025-02-12 12:32:36.311 GMT [22] LOG:  checkpoint starting: shutdown immediate
+2025-02-12 12:32:36.311 GMT [22] DEBUG:  performing replication slot checkpoint
+2025-02-12 12:32:36.330 GMT [22] DEBUG:  checkpoint sync: number=1 file=base/16384/2610 time=7.567 ms
+2025-02-12 12:32:36.338 GMT [22] LOG:  checkpoint complete: wrote 1 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.008 s, total=0.030 s; sync files=1, longest=0.008 s, average=0.008 s; distance=0 kB, estimate=0 kB
+2025-02-12 12:32:36.419 GMT [1] LOG:  database system is shut down
+2025-02-12 12:32:36.507 GMT [21] DEBUG:  logger shutting down
