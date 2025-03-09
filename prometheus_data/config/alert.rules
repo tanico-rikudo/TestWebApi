@@ -1,0 +1,20 @@
+groups:
+  - name: example
+    rules:
+      - alert: instance_down
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          firing_text: "[{{ $labels.env }}] {{ $labels.instance }} has been down for more than 1 minutes."
+          resolved_text: "[{{ $labels.env }}] {{ $labels.instance }} has recoverd."
+
+      - alert: HighCpuUsage
+        expr: (100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[1m])) * 100)) > 70
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance }}"
+          description: "CPU usage on instance {{ $labels.instance }} is above 70% for the last 1 minutes."

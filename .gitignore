@@ -108,3 +108,20 @@ celerybeat-schedule
 
 # logs
 logs/*
+
+# Grafana
+grafana_data/*
+!grafana_data/config
+
+# Grafana
+grafana_data/*
+!grafana_data/config
+
+# postgres data
+postgres_data/*
+!postgres_data/config
+
+# Prometheus
+prometheus_data/*
+!prometheus_data/config
+
